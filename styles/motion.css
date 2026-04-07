@@ -1,0 +1,65 @@
+:root {
+    --easing-apple: cubic-bezier(0.16, 1, 0.3, 1);
+    --stagger-delay: 0.1s;
+}
+
+/* Staggered Text Reveal */
+.split-parent {
+    overflow: hidden;
+    display: inline-block;
+    vertical-align: bottom;
+    padding: 0.1em 0; /* Add minor padding to avoid cutting off umlauts like Ö */
+}
+
+.split-child {
+    display: inline-block;
+    transform: translateY(110%);
+    transition: transform 1.2s var(--easing-apple);
+    will-change: transform;
+}
+
+.reveal.active .split-child {
+    transform: translateY(0);
+}
+
+/* Section Reveals with smooth easing */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: 
+        opacity 1.2s var(--easing-apple),
+        transform 1.2s var(--easing-apple);
+    will-change: opacity, transform;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Progress-based Opacity & Scale for 'Apple Style' */
+.scroll-reveal-item {
+    opacity: 0;
+    transform: translateY(50px) scale(0.95);
+    transition: 
+        opacity 1s var(--easing-apple),
+        transform 1s var(--easing-apple);
+}
+
+.scroll-reveal-item.active {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+/* Parallax Backgrounds */
+.parallax-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 120%;
+    z-index: -1;
+    background-size: cover;
+    background-position: center;
+    will-change: transform;
+}

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontakt | Mach Dich Online</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="/styles/motion.css">
+    <script defer src="/scripts/main.js"></script>
+    <script defer src="/scripts/scroll-engine.js"></script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18056127203"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'AW-18056127203');
+    </script>
+</head>
+<body>
+
+    <div id="header-placeholder"></div>
+
+    <main>
+        <section style="padding-top: 100px;">
+            <div class="container">
+                <div class="reveal">
+                    <h1 class="split-text" style="font-size: clamp(3rem, 8vw, 5rem);"><span class="text-gradient">Lass uns</span> sprechen</h1>
+                    <p class="split-text reveal" style="color: var(--text-muted); font-size: 18px; max-width: 600px; margin-top: 10px;">
+                        Haben Sie eine Idee? Suchen Sie technische Unterstützung? Wir sind bereit, Ihr Projekt zum Erfolg zu führen.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section style="padding: 40px 0 100px;">
+            <div class="container">
+                <div style="display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 40px;">
+                    <div class="reveal">
+                        <h3 style="margin-bottom: 40px;">Direktkontakt</h3>
+                        <div style="margin-bottom: 30px;">
+                            <label>Mail</label>
+                            <a href="mailto:kontakt@mach-dich-online.de" style="font-size: 20px; color: var(--text-main); text-decoration: none;">kontakt@mach-dich-online.de</a>
+                        </div>
+                        <div style="margin-bottom: 30px;">
+                            <label>Phone</label>
+                            <a href="tel:+49123456789" style="font-size: 20px; color: var(--text-main); text-decoration: none;">+49 123 456789</a>
+                        </div>
+                        <div style="margin-bottom: 30px;">
+                            <label>Socials</label>
+                            <div style="display: flex; gap: 20px; font-size: 20px; color: var(--text-main);">
+                                 <a href="#" style="color: inherit; text-decoration: none;">LinkedIn</a>
+                                 <a href="#" style="color: inherit; text-decoration: none;">Instagram</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="reveal">
+                        <div class="form-card">
+                            <h3 style="margin-bottom: 30px;">Projekt beschreiben</h3>
+                            <form id="hero-lead-form" action="https://formsubmit.co/ajax/kontakt@mach-dich-online.de" method="POST"> <!-- Reusing lead form script for consistency -->
+                                <!-- Anti-Spam -->
+                                <input type="text" name="_honey" style="display:none">
+                                <!-- Disable Captcha for AJAX -->
+                                <input type="hidden" name="_captcha" value="false">
+                                
+                                <div class="form-group">
+                                    <label for="name">Dein Name</label>
+                                    <input type="text" id="name" name="name" required placeholder="Vor- & Nachname">
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">E-Mail</label>
+                                    <input type="email" id="email" name="email" required placeholder="hallo@firma.de">
+                                </div>
+                                <div class="form-group">
+                                    <label for="subject">Betreff</label>
+                                    <input type="text" id="subject" name="subject" placeholder="z.B. Kooperation, Projektanfrage">
+                                </div>
+                                <div class="form-group">
+                                    <label for="message">Nachricht</label>
+                                    <textarea id="message" name="message" rows="5" required placeholder="Erzähl uns von deiner Idee..."></textarea>
+                                </div>
+                                <button type="submit" class="btn" style="width: 100%;">Nachricht senden</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Map Section -->
+        <section id="location" style="background: var(--bg-surface);">
+            <div class="container reveal">
+                <div style="text-align: center; margin-bottom: 60px;">
+                    <h2 style="font-size: clamp(2rem, 5vw, 4rem);">Hier <span class="text-gradient">finden Sie uns</span></h2>
+                    <p style="color: var(--text-muted); margin-top: 20px;">Alte Neckarelzer Straße 24, 74821 Mosbach</p>
+                </div>
+                <div style="width: 100%; height: 450px; border-radius: 20px; overflow: hidden; border: 1px solid var(--border); box-shadow: 0 20px 40px rgba(0,0,0,0.05);">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2599.4488341623146!2d9.126126!3d49.3436529!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4797f53bcab2d18f%3A0x4b11e7eb74f82288!2sAlte%20Neckarelzer%20Str.%2024%2C%2074821%20Mosbach!5e0!3m2!1sde!2sde!4v1775041849530!5m2!1sde!2sde" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+</body>
+</html>
+

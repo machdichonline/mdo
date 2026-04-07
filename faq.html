@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ | Häufige Fragen | Mach Dich Online</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <meta name="description" content="Antworten auf deine Fragen rund um Webdesign, SEO, E-Commerce und digitale Strategie. Alles was du wissen musst.">
+    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="/styles/motion.css">
+    <script defer src="/scripts/main.js"></script>
+    <script defer src="/scripts/scroll-engine.js"></script>
+    <style>
+        .faq-accordion {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .faq-item {
+            margin-bottom: 15px;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+            background: #fff;
+            transition: var(--transition-smooth);
+        }
+        .faq-item:hover {
+            border-color: var(--accent);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+        }
+        .faq-question {
+            padding: 24px 30px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 700;
+            font-family: var(--font-heading);
+            color: var(--text-main);
+            user-select: none;
+        }
+        .faq-answer {
+            padding: 0 30px;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            color: var(--text-muted);
+            line-height: 1.8;
+            font-size: 15px;
+        }
+        .faq-item.active .faq-answer {
+            padding-bottom: 24px;
+            max-height: 500px;
+        }
+        .faq-icon {
+            transition: transform 0.3s ease;
+            color: var(--accent);
+        }
+        .faq-item.active .faq-icon {
+            transform: rotate(45deg);
+        }
+    </style>
+</head>
+<body>
+    <div id="header-placeholder"></div>
+
+    <main>
+        <!-- FAQ Hero -->
+        <section style="padding: 180px 0 80px; background: var(--bg-surface);">
+            <div class="container text-center">
+                <div class="reveal">
+                    <span style="color: var(--accent); text-transform: uppercase; letter-spacing: 0.3em; font-weight: 700; font-size: 14px; display: block; margin-bottom: 20px;">Häufige Fragen</span>
+                    <h1 class="split-text" style="font-size: clamp(3rem, 8vw, 6rem);"><span class="text-gradient">Häufige</span> Fragen</h1>
+                    <p class="split-text reveal" style="color: var(--text-muted); font-size: 22px; max-width: 600px; margin-top: 30px;">
+                        Alles, was du über die Zusammenarbeit mit uns und unsere Prozesse wissen musst.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Content -->
+        <section style="padding: 100px 0;">
+            <div class="container">
+                <div class="faq-accordion reveal">
+                    <!-- Item 1 -->
+                    <div class="faq-item" onclick="this.classList.toggle('active')">
+                        <div class="faq-question">
+                            Was kostet die Erstellung einer professionellen Webseite?
+                            <span class="faq-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            Die Kosten für die Erstellung deiner Webseite hängen vom gewünschten Umfang, der Seitenanzahl sowie den benötigten Funktionen ab. Eine funktionale Onepage-Webseite erhältst du bei uns bereits ab 990 € zzgl. MwSt.
+                        </div>
+                    </div>
+
+                    <!-- Item 2 -->
+                    <div class="faq-item" onclick="this.classList.toggle('active')">
+                        <div class="faq-question">
+                            Welche Leistungen sind im Preis enthalten?
+                            <span class="faq-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            Unser unverbindliches Angebot versteht sich als Komplettpreis, der alle notwendigen Schritte bis zur Veröffentlichung deiner Webseite umfasst. Dazu gehören Beratung und Planung, Konzeption, Umsetzung, Hosting sowie gegebenenfalls Korrekturschleifen.
+                        </div>
+                    </div>
+
+                    <!-- Item 3 -->
+                    <div class="faq-item" onclick="this.classList.toggle('active')">
+                        <div class="faq-question">
+                            Wie lange dauert die Fertigstellung meiner Webseite?
+                            <span class="faq-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            Die Dauer der Umsetzung richtet sich nach dem Umfang des Projekts und liegt in der Regel zwischen wenigen Tagen und etwa vier Wochen.
+                        </div>
+                    </div>
+
+                    <!-- Item 4 -->
+                    <div class="faq-item" onclick="this.classList.toggle('active')">
+                        <div class="faq-question">
+                            Wird die Webseite individuell gestaltet oder basiert sie auf Vorlagen?
+                            <span class="faq-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            Jede von uns erstellte Webseite ist ein individuelles Unikat. Design und Struktur werden vollständig maßgeschneidert und exakt an deine Anforderungen und Wünsche angepasst.
+                        </div>
+                    </div>
+
+                    <!-- Item 5 -->
+                    <div class="faq-item" onclick="this.classList.toggle('active')">
+                        <div class="faq-question">
+                            Kann ich meine Webseite später selbst bearbeiten?
+                            <span class="faq-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            Im Erstgespräch klären wir gemeinsam, ob du deine Webseite eigenständig bearbeiten möchtest. Ist dies gewünscht, setzen wir auf entsprechende Systeme, die dir eine einfache und flexible Pflege der Inhalte ermöglichen.
+                        </div>
+                    </div>
+
+                    <!-- Item 6 -->
+                    <div class="faq-item" onclick="this.classList.toggle('active')">
+                        <div class="faq-question">
+                            Ist die Webseite für mobile Geräte optimiert (Responsive Design)?
+                            <span class="faq-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            Selbstverständlich. Die mobile Optimierung hat bei uns höchste Priorität, da der Großteil der Nutzer Webseiten über mobile Endgeräte aufruft. Inhalte und Design werden gezielt für eine optimale Darstellung auf Smartphones und Tablets konzipiert.
+                        </div>
+                    </div>
+
+                    <!-- Item 7 -->
+                    <div class="faq-item" onclick="this.classList.toggle('active')">
+                        <div class="faq-question">
+                            Unterstützen Sie auch bei der Texterstellung und beim Content?
+                            <span class="faq-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            Ja, auf Wunsch übernehmen wir die vollständige Texterstellung für deine Webseite. Bereits vorhandenes Text- und Bildmaterial integrieren wir selbstverständlich professionell in das Gesamtkonzept.
+                        </div>
+                    </div>
+
+                    <!-- Item 8 -->
+                    <div class="faq-item" onclick="this.classList.toggle('active')">
+                        <div class="faq-question">
+                            Bieten Sie auch Logo- oder Corporate-Design-Leistungen an?
+                            <span class="faq-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            Ergänzend zur Webseitenerstellung bieten wir dir gerne zusätzliche Leistungen wie Logoentwicklung oder die Gestaltung von Visitenkarten an.
+                        </div>
+                    </div>
+
+                    <!-- Item 9 -->
+                    <div class="faq-item" onclick="this.classList.toggle('active')">
+                        <div class="faq-question">
+                            Wird meine Webseite DSGVO-konform umgesetzt?
+                            <span class="faq-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            Ja, deine Webseite wird unter Berücksichtigung aller relevanten gesetzlichen Vorgaben umgesetzt. Auf Wunsch erstellen wir zudem die erforderlichen Rechtstexte für dich.
+                        </div>
+                    </div>
+
+                    <!-- Item 10 -->
+                    <div class="faq-item" onclick="this.classList.toggle('active')">
+                        <div class="faq-question">
+                            Übernehmen Sie Hosting und Domainverwaltung?
+                            <span class="faq-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            Gerne übernehmen wir sowohl das Hosting als auch die Verwaltung deiner Domain. Alternativ kannst du diese Aufgaben selbstverständlich auch selbst übernehmen.
+                        </div>
+                    </div>
+
+                    <!-- Item 11 -->
+                    <div class="faq-item" onclick="this.classList.toggle('active')">
+                        <div class="faq-question">
+                            Bieten Sie Wartung und Support nach dem Launch an?
+                            <span class="faq-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            Auch nach der Veröffentlichung stehen wir dir zur Seite und übernehmen auf Wunsch alle Aufgaben rund um Wartung, Hosting, Verwaltung sowie inhaltliche Anpassungen.
+                        </div>
+                    </div>
+
+                    <!-- Item 12 -->
+                    <div class="faq-item" onclick="this.classList.toggle('active')">
+                        <div class="faq-question">
+                            Ist eine Integration von Online-Shops möglich?
+                            <span class="faq-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            Die Entwicklung von Online-Shops gehört zu unseren Kernkompetenzen. Wir unterstützen dich umfassend bei der Planung und Umsetzung deines E-Commerce-Projekts.
+                        </div>
+                    </div>
+
+                    <!-- Item 13 -->
+                    <div class="faq-item" onclick="this.classList.toggle('active')">
+                        <div class="faq-question">
+                            Was unterscheidet Ihre Agentur von anderen Anbietern?
+                            <span class="faq-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            Bei Mach-Dich-Online profitierst du von einer Kombination aus persönlichem Service, umfassender Betreuung, individuell entwickelten Webseiten und einem fairen Preis-Leistungs-Verhältnis. <br><br> Im Gegensatz zu vielen anderen Anbietern setzen wir nicht auf einfache Baukastensysteme, sondern entwickeln maßgeschneiderte Lösungen. Das Ergebnis sind hochwertige, unverwechselbare Webseiten mit echtem Wiedererkennungswert.
+                        </div>
+                    </div>
+
+                    <!-- Item 14 -->
+                    <div class="faq-item" onclick="this.classList.toggle('active')">
+                        <div class="faq-question">
+                            Ist die Webseite erweiterbar, wenn mein Unternehmen wächst?
+                            <span class="faq-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            Selbstverständlich. Deine Webseite wird von Anfang an so konzipiert, dass sie jederzeit erweitert und an neue Anforderungen angepasst werden kann. Auch nach dem Launch unterstützen wir dich gerne bei Weiterentwicklungen.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Footer CTA Section -->
+                <div class="reveal" style="text-align: center; margin-top: 100px; padding: 60px; background: var(--bg-surface); border-radius: 40px; border: 1px solid var(--border);">
+                    <h2 style="font-size: 28px; margin-bottom: 20px;">Keine Antwort auf deine Frage?</h2>
+                    <p style="color: var(--text-muted); margin-bottom: 40px; font-size: 18px;">Unser Team hilft dir gerne persönlich weiter. Schreib uns einfach eine Nachricht.</p>
+                    <a href="/anfrage.html" class="btn">Jetzt Angebot anfragen</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-placeholder"></div>
+</body>
+</html>
+

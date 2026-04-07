@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anfrage | Mach Dich Online</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <meta name="description" content="Starte dein digitales Projekt mit Mach Dich Online. Jetzt unverbindlich anfragen und kostenloses Angebot erhalten.">
+    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="/styles/motion.css">
+    <script defer src="/scripts/main.js"></script>
+    <script defer src="/scripts/scroll-engine.js"></script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18056127203"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'AW-18056127203');
+    </script>
+    
+    <style>
+  .pf-root {
+    --pf-accent: #95D100;
+    --pf-accent-glow: rgba(149, 209, 0, 0.2);
+    --pf-accent-hover: #82b800;
+    --pf-bg: #f8fbf1;
+    --pf-white: #ffffff;
+    --pf-text: #1a1a1a;
+    --pf-text-light: #6b7280;
+    --pf-field-bg: rgba(0, 0, 0, 0.03);
+    --pf-border: rgba(0, 0, 0, 0.08);
+    --pf-radius: 12px;
+    background: var(--pf-bg);
+    padding: 32px 16px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .pf-wrapper {
+    width: 100%;
+    max-width: 560px;
+  }
+
+  .pf-card {
+    background: var(--pf-white);
+    border-radius: var(--pf-radius);
+    box-shadow: 0 30px 60px rgba(0,0,0,0.05), 0 0 40px var(--pf-accent-glow);
+    padding: 48px 44px 44px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .pf-card-header {
+    text-align: center;
+    margin-bottom: 36px;
+  }
+  .pf-card-header h2 {
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--pf-text);
+    letter-spacing: -0.5px;
+    line-height: 1.2;
+    margin: 0;
+  }
+  .pf-card-header p {
+    font-size: 14px;
+    color: var(--pf-text-light);
+    margin-top: 6px;
+    font-weight: 400;
+  }
+
+  .pf-progress-wrap { margin-bottom: 36px; }
+  .pf-progress-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+  .pf-progress-label, .pf-progress-count {
+    font-size: 12px;
+    color: var(--pf-text-light);
+    font-weight: 500;
+    letter-spacing: 0.2px;
+  }
+  .pf-progress-track {
+    height: 4px;
+    background: #e5e7eb;
+    border-radius: 99px;
+    overflow: hidden;
+  }
+  .pf-progress-fill {
+    height: 100%;
+    background: var(--pf-accent);
+    border-radius: 99px;
+    transition: width 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .pf-slide { display: none; animation: pfFadeUp 0.35s ease both; }
+  .pf-slide.active { display: block; }
+
+  @keyframes pfFadeUp {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .pf-question {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--pf-text);
+    margin-bottom: 20px;
+    line-height: 1.35;
+    letter-spacing: -0.2px;
+  }
+
+  .pf-choices {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 4px;
+  }
+
+  .pf-choice-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 24px 16px;
+    background: var(--pf-field-bg);
+    border: 1.5px solid var(--pf-border);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--pf-text);
+    outline: none;
+  }
+  .pf-choice-btn img {
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
+  }
+  .pf-choice-btn:hover {
+    border-color: var(--pf-accent);
+    background: rgba(149, 209, 0, 0.05);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(149,209,0,0.12);
+  }
+  .pf-choice-btn.selected {
+    border-color: var(--pf-accent);
+    background: rgba(149, 209, 0, 0.07);
+    box-shadow: 0 0 0 3px var(--pf-accent-glow);
+  }
+  .pf-choice-btn.row-style {
+    flex-direction: row;
+    justify-content: flex-start;
+    padding: 18px 20px;
+    gap: 14px;
+  }
+
+  .pf-yn-choices {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .pf-yn-btn {
+    padding: 18px;
+    background: var(--pf-field-bg);
+    border: 1.5px solid var(--pf-border);
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--pf-text);
+    transition: all 0.2s ease;
+    outline: none;
+  }
+  .pf-yn-btn:hover { border-color: var(--pf-accent); background: rgba(149,209,0,0.05); }
+  .pf-yn-btn.selected {
+    border-color: var(--pf-accent);
+    background: rgba(149, 209, 0, 0.07);
+    box-shadow: 0 0 0 3px var(--pf-accent-glow);
+  }
+
+  .pf-section-group { margin-bottom: 28px; }
+  .pf-section-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--pf-text);
+    margin-bottom: 12px;
+  }
+  .pf-section-title img { width: 22px; height: 22px; object-fit: contain; }
+  .pf-multi-opts { display: flex; flex-direction: column; gap: 8px; }
+  .pf-multi-opt {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 13px 16px;
+    background: var(--pf-field-bg);
+    border: 1.5px solid var(--pf-border);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.18s ease;
+    font-size: 13.5px;
+    font-weight: 400;
+    color: var(--pf-text);
+    outline: none;
+    text-align: left;
+  }
+  .pf-multi-opt:hover { border-color: var(--pf-accent); background: rgba(149,209,0,0.04); }
+  .pf-multi-opt.selected { border-color: var(--pf-accent); background: rgba(149,209,0,0.07); }
+  .pf-check-box {
+    width: 18px;
+    height: 18px;
+    min-width: 18px;
+    border: 1.5px solid #d1d5db;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.18s ease;
+  }
+  .pf-multi-opt.selected .pf-check-box {
+    background: var(--pf-accent);
+    border-color: var(--pf-accent);
+  }
+  .pf-multi-opt.selected .pf-check-box::after {
+    content: '';
+    width: 10px;
+    height: 6px;
+    border-left: 2px solid #fff;
+    border-bottom: 2px solid #fff;
+    transform: rotate(-45deg) translateY(-1px);
+    display: block;
+  }
+
+  .pf-field-group { display: flex; flex-direction: column; gap: 14px; margin-bottom: 4px; }
+  .pf-field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .pf-field { display: flex; flex-direction: column; gap: 6px; }
+  .pf-field label {
+    font-size: 12.5px;
+    font-weight: 500;
+    color: var(--pf-text-light);
+    letter-spacing: 0.2px;
+  }
+  .pf-field input {
+    padding: 13px 16px;
+    background: var(--pf-field-bg);
+    border: 1.5px solid var(--pf-border);
+    border-radius: 8px;
+    font-size: 14px;
+    color: var(--pf-text);
+    outline: none;
+    transition: all 0.2s ease;
+    width: 100%;
+  }
+  .pf-field input::placeholder { color: #b0b8c4; }
+  .pf-field input:focus {
+    border-color: var(--pf-accent);
+    box-shadow: 0 0 0 3px var(--pf-accent-glow);
+    background: var(--pf-white);
+  }
+  .pf-field input.pf-invalid { border-color: #f87171; box-shadow: 0 0 0 3px rgba(248,113,113,0.15); }
+  .pf-err-msg { font-size: 11.5px; color: #ef4444; display: none; }
+  .pf-has-error .pf-err-msg { display: block; }
+
+  .pf-btn-primary {
+    width: 100%;
+    padding: 15px;
+    background: var(--pf-accent);
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    letter-spacing: 0.1px;
+    margin-top: 20px;
+  }
+  .pf-btn-primary:hover {
+    background: var(--pf-accent-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 8px 24px rgba(149,209,0,0.3);
+  }
+  .pf-btn-primary:active { transform: translateY(0); }
+  .pf-btn-primary:disabled {
+    background: #d1d5db;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+  }
+
+  .pf-btn-back {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: none;
+    border: none;
+    color: var(--pf-text-light);
+    font-size: 13px;
+    cursor: pointer;
+    padding: 0;
+    margin-top: 16px;
+    transition: color 0.18s;
+  }
+  .pf-btn-back:hover { color: var(--pf-text); }
+  .pf-btn-back:hover svg { transform: translateX(-3px); }
+  .pf-btn-back svg { transition: transform 0.18s; }
+
+  .pf-privacy-note {
+    font-size: 11.5px;
+    color: #9ca3af;
+    text-align: center;
+    margin-top: 14px;
+    line-height: 1.5;
+  }
+
+  .pf-success { text-align: center; padding: 16px 0 8px; }
+  .pf-check-anim { width: 80px; height: 80px; margin: 0 auto 28px; }
+  .pf-check-anim svg { width: 80px; height: 80px; }
+  .pf-check-circle {
+    stroke-dasharray: 226;
+    stroke-dashoffset: 226;
+    animation: pfDrawCircle 0.6s ease forwards 0.1s;
+  }
+  .pf-check-mark {
+    stroke-dasharray: 60;
+    stroke-dashoffset: 60;
+    animation: pfDrawMark 0.4s ease forwards 0.7s;
+  }
+  @keyframes pfDrawCircle { to { stroke-dashoffset: 0; } }
+  @keyframes pfDrawMark   { to { stroke-dashoffset: 0; } }
+
+  .pf-success-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--pf-text);
+    margin-bottom: 14px;
+    letter-spacing: -0.3px;
+  }
+  .pf-success-text {
+    font-size: 14.5px;
+    color: var(--pf-text-light);
+    line-height: 1.65;
+    max-width: 380px;
+    margin: 0 auto;
+  }
+  .pf-success-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(149,209,0,0.1);
+    border: 1px solid rgba(149,209,0,0.25);
+    color: #5a7e00;
+    font-size: 12.5px;
+    font-weight: 500;
+    border-radius: 99px;
+    padding: 6px 14px;
+    margin-top: 24px;
+  }
+
+  @media (max-width: 480px) {
+    .pf-card { padding: 36px 24px 32px; }
+    .pf-field-row { grid-template-columns: 1fr; }
+    .pf-card-header h2 { font-size: 22px; }
+  }
+    </style>
+</head>
+<body>
+    <div id="header-placeholder"></div>
+
+    <main style="padding-top: 150px; background: var(--bg-surface); min-height: 100vh;">
+        <div class="pf-root">
+  <div class="pf-wrapper">
+    <div class="pf-card">
+
+      <div class="pf-card-header">
+        <h2>Jetzt Webseite anfragen</h2>
+        <p>
+          <svg style="display:inline-block;vertical-align:middle;margin-right:5px;margin-top:-2px" width="15" height="15" viewBox="0 0 15 15" fill="none">
+            <circle cx="7.5" cy="7.5" r="7.5" fill="#95D100"/>
+            <path d="M4 7.5l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          100% unverbindlich und kostenlos
+        </p>
+      </div>
+
+      <div class="pf-progress-wrap" id="pf-progress-wrap">
+        <div class="pf-progress-meta">
+          <span class="pf-progress-label" id="pf-progress-label">Schritt 1 von 6</span>
+          <span class="pf-progress-count" id="pf-progress-pct">0%</span>
+        </div>
+        <div class="pf-progress-track">
+          <div class="pf-progress-fill" id="pf-progress-fill" style="width:0%"></div>
+        </div>
+      </div>
+
+      <!-- Slide 1 -->
+      <div class="pf-slide active" id="pf-slide-1">
+        <div class="pf-question">Welche Art von Webseite benötigst Du?</div>
+        <div class="pf-choices">
+          <button class="pf-choice-btn" data-slide="1" data-value="klassisch" onclick="pfSelectAndAdvance(this, 2)">
+            <img src="https://cdn.shopify.com/s/files/1/0624/6894/8185/files/webseite.png?v=1775213088" alt="Webseite" />
+            Klassische Webseite
+          </button>
+          <button class="pf-choice-btn" data-slide="1" data-value="onlineshop" onclick="pfSelectAndAdvance(this, 2)">
+            <img src="https://cdn.shopify.com/s/files/1/0624/6894/8185/files/online-shopping.png?v=1775213088" alt="Onlineshop" />
+            Onlineshop
+          </button>
+        </div>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="pf-slide" id="pf-slide-2">
+        <div class="pf-question">Hast Du bereits eine bestehende Webseite?</div>
+        <div class="pf-yn-choices">
+          <button class="pf-yn-btn" data-slide="2" data-value="ja" onclick="pfSelectYN(this, 'ja')">Ja</button>
+          <button class="pf-yn-btn" data-slide="2" data-value="nein" onclick="pfSelectYN(this, 'nein')">Nein</button>
+        </div>
+        <button class="pf-btn-back" onclick="pfGoBack()">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 12H5M5 12l7-7M5 12l7 7"/></svg>
+          Zurück
+        </button>
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="pf-slide" id="pf-slide-3">
+        <div class="pf-question">Bitte gib hier den Link zu Deiner aktuellen Webseite ein.</div>
+        <div class="pf-field">
+          <label>URL Deiner Webseite</label>
+          <input type="url" id="pf-input-url" placeholder="https://www.deinewebseite.de" />
+        </div>
+        <button class="pf-btn-primary" onclick="pfAdvanceTo(4)">Zum nächsten Schritt</button>
+        <button class="pf-btn-back" onclick="pfGoBack()">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 12H5M5 12l7-7M5 12l7 7"/></svg>
+          Zurück
+        </button>
+      </div>
+
+      <!-- Slide 4 -->
+      <div class="pf-slide" id="pf-slide-4">
+        <div class="pf-question">Soll eine neue Webseite erstellt oder die bestehende Webseite überarbeitet werden?</div>
+        <div class="pf-choices" style="grid-template-columns:1fr;">
+          <button class="pf-choice-btn row-style" data-slide="4" data-value="neu" onclick="pfSelectAndAdvance(this, 5)">Neue Webseite erstellen</button>
+          <button class="pf-choice-btn row-style" data-slide="4" data-value="ueberarbeiten" onclick="pfSelectAndAdvance(this, 5)">Aktuelle Webseite überarbeiten</button>
+        </div>
+        <button class="pf-btn-back" onclick="pfGoBack()">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 12H5M5 12l7-7M5 12l7 7"/></svg>
+          Zurück
+        </button>
+      </div>
+
+      <!-- Slide 5 -->
+      <div class="pf-slide" id="pf-slide-5">
+        <div class="pf-question">Was ist Dir bei der neuen Webseite wichtig?<br><small style="font-size:13px;font-weight:400;color:#6b7280">Mehrfachauswahl möglich</small></div>
+
+        <div class="pf-section-group">
+          <div class="pf-section-title">
+            <img src="https://cdn.shopify.com/s/files/1/0624/6894/8185/files/profitieren.png?v=1775213092" alt="Umsatz" />
+            Umsatz und Verkauf
+          </div>
+          <div class="pf-multi-opts">
+            <button class="pf-multi-opt" data-value="Mehr Kundenanfragen generieren" onclick="pfToggleMulti(this)"><span class="pf-check-box"></span>Mehr Kundenanfragen generieren</button>
+            <button class="pf-multi-opt" data-value="Produkte und Dienstleistungen präsentieren und verkaufen" onclick="pfToggleMulti(this)"><span class="pf-check-box"></span>Produkte und Dienstleistungen präsentieren und verkaufen</button>
+            <button class="pf-multi-opt" data-value="Termine oder Buchungen erhalten" onclick="pfToggleMulti(this)"><span class="pf-check-box"></span>Termine oder Buchungen erhalten</button>
+          </div>
+        </div>
+
+        <div class="pf-section-group">
+          <div class="pf-section-title">
+            <img src="https://cdn.shopify.com/s/files/1/0624/6894/8185/files/beforderung.png?v=1775213092" alt="Marketing" />
+            Marketing, Wachstum und Vertrauen
+          </div>
+          <div class="pf-multi-opts">
+            <button class="pf-multi-opt" data-value="Bessere Auffindbarkeit bei Google (SEO)" onclick="pfToggleMulti(this)"><span class="pf-check-box"></span>Bessere Auffindbarkeit bei Google (SEO)</button>
+            <button class="pf-multi-opt" data-value="Reichweite, Sichtbarkeit and Markenpräsenz stärken" onclick="pfToggleMulti(this)"><span class="pf-check-box"></span>Reichweite, Sichtbarkeit and Markenpräsenz stärken</button>
+            <button class="pf-multi-opt" data-value="Vertrauen bei Kunden aufbauen" onclick="pfToggleMulti(this)"><span class="pf-check-box"></span>Vertrauen bei Kunden aufbauen</button>
+          </div>
+        </div>
+
+        <div class="pf-section-group">
+          <div class="pf-section-title">
+            <img src="https://cdn.shopify.com/s/files/1/0624/6894/8185/files/technischer-support.png?v=1775213092" alt="Technisch" />
+            Technisch
+          </div>
+          <div class="pf-multi-opts">
+            <button class="pf-multi-opt" data-value="Prozesse automatisieren (z.B. Kundenservice, Verkauf, Terminbuchung)" onclick="pfToggleMulti(this)"><span class="pf-check-box"></span>Prozesse automatisieren (z.B. Kundenservice, Verkauf, Terminbuchung)</button>
+            <button class="pf-multi-opt" data-value="Anmeldebereich für Kunden oder Mitglieder schaffen" onclick="pfToggleMulti(this)"><span class="pf-check-box"></span>Anmeldebereich für Kunden oder Mitglieder schaffen</button>
+          </div>
+        </div>
+
+        <button class="pf-btn-primary" onclick="pfAdvanceTo(6)">Zum nächsten Schritt</button>
+        <button class="pf-btn-back" onclick="pfGoBack()">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 12H5M5 12l7-7M5 12l7 7"/></svg>
+          Zurück
+        </button>
+      </div>
+
+      <!-- Slide 6 -->
+      <div class="pf-slide" id="pf-slide-6">
+        <div class="pf-question">Fast geschafft – wie dürfen wir Dich kontaktieren?</div>
+        <div class="pf-field-group">
+          <div class="pf-field-row">
+            <div class="pf-field" id="pf-f-vorname">
+              <label>Vorname</label>
+              <input type="text" id="pf-input-vorname" placeholder="Max" />
+              <span class="pf-err-msg">Bitte Vor- oder Nachname eingeben.</span>
+            </div>
+            <div class="pf-field" id="pf-f-nachname">
+              <label>Nachname</label>
+              <input type="text" id="pf-input-nachname" placeholder="Mustermann" />
+            </div>
+          </div>
+          <div class="pf-field">
+            <label>Unternehmensname (optional)</label>
+            <input type="text" id="pf-input-unternehmen" placeholder="Muster GmbH" />
+          </div>
+          <div class="pf-field" id="pf-f-telefon">
+            <label>Telefon</label>
+            <input type="tel" id="pf-input-telefon" placeholder="+49 171 1234567" />
+            <span class="pf-err-msg">Bitte eine gültige Telefonnummer eingeben.</span>
+          </div>
+          <div class="pf-field" id="pf-f-email">
+            <label>E-Mail</label>
+            <input type="email" id="pf-input-email" placeholder="max@muster.de" oninput="pfUpdateSubmitBtn()" />
+            <span class="pf-err-msg">Bitte eine gültige E-Mail-Adresse eingeben.</span>
+          </div>
+        </div>
+        <button class="pf-btn-primary" id="pf-btn-submit" disabled onclick="pfSubmitForm()">Jetzt unverbindlich Anfragen</button>
+        <p class="pf-privacy-note">🔒 Deine Angaben werden ausschließlich genutzt, um Dich mit Deinem unverbindlichen Angebot zu kontaktieren. Deine Daten werden zu keinem Zeitpunkt an Dritte weitergegeben.</p>
+        <button class="pf-btn-back" onclick="pfGoBack()">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 12H5M5 12l7-7M5 12l7 7"/></svg>
+          Zurück
+        </button>
+      </div>
+
+      <!-- Slide Success -->
+      <div class="pf-slide pf-success" id="pf-slide-success">
+        <div class="pf-check-anim">
+          <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle class="pf-check-circle" cx="40" cy="40" r="36" stroke="#95D100" stroke-width="3" stroke-linecap="round"/>
+            <path class="pf-check-mark" d="M24 40l12 12 20-24" stroke="#95D100" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="pf-success-title">Anfrage erfolgreich gesendet!</div>
+        <p class="pf-success-text">Vielen Dank für Deine Angaben und Deine Projektanfrage. Wir werden Dich Werktags innerhalb der nächsten 24 Stunden kontaktieren.</p>
+        <div class="pf-success-badge">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M9 12l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Wir melden uns in Kürze bei Dir
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script>
+(function () {
+  // ─── KONFIGURATION ─────────────────────────────────────────────────────────
+  var PF_SHEET_URL = 'https://script.google.com/macros/s/AKfycbyA0vhB_7DdAlm5qen2dTZkLHj4io-Yi62VsDitvOj-Y75iWc8TobMDjr7lSatcp1IRIA/exec';
+  var TELEGRAM_TOKEN = '8716864238:AAF4eIwG9yY4PhlxiSDJGYhss6c4vbAvGAY';
+  var TELEGRAM_CHAT_ID = '-5212802663';
+  // ────────────────────────────────────────────────────────────────────────────
+
+  var pfState = { history: [1], answers: {}, currentSlide: 1 };
+  var PF_TOTAL = 6;
+
+  function pfUpdateProgress(slide) {
+    var step = typeof slide === 'number' ? slide : PF_TOTAL;
+    var pct = Math.round(((step - 1) / PF_TOTAL) * 100);
+    document.getElementById('pf-progress-fill').style.width = pct + '%';
+    document.getElementById('pf-progress-pct').textContent = pct + '%';
+    document.getElementById('pf-progress-label').textContent = 'Schritt ' + step + ' von ' + PF_TOTAL;
+  }
+
+  function pfShowSlide(id) {
+    document.querySelectorAll('.pf-slide').forEach(function(s) { s.classList.remove('active'); });
+    var target = document.getElementById('pf-slide-' + id);
+    if(target) target.classList.add('active');
+    
+    var isSuccess = id === 'success';
+    document.getElementById('pf-progress-wrap').style.display = isSuccess ? 'none' : '';
+    if (!isSuccess) pfUpdateProgress(id);
+    pfState.currentSlide = id;
+  }
+
+  window.pfSelectAndAdvance = function(btn, next) {
+    document.querySelectorAll('[data-slide="' + btn.dataset.slide + '"]').forEach(function(b) { b.classList.remove('selected'); });
+    btn.classList.add('selected');
+    pfState.answers['slide_' + btn.dataset.slide] = btn.dataset.value;
+    setTimeout(function() { pfAdvanceTo(next); }, 220);
+  };
+
+  window.pfSelectYN = function(btn, val) {
+    document.querySelectorAll('[data-slide="2"]').forEach(function(b) { b.classList.remove('selected'); });
+    btn.classList.add('selected');
+    pfState.answers['slide_2'] = val;
+    setTimeout(function() { pfAdvanceTo(val === 'ja' ? 3 : 5); }, 220);
+  };
+
+  window.pfAdvanceTo = function(slide) {
+    pfState.history.push(slide);
+    pfShowSlide(slide);
+  };
+
+  window.pfGoBack = function() {
+    if (pfState.history.length <= 1) return;
+    pfState.history.pop();
+    pfShowSlide(pfState.history[pfState.history.length - 1]);
+  };
+
+  window.pfToggleMulti = function(btn) { btn.classList.toggle('selected'); };
+
+  window.pfUpdateSubmitBtn = function() {
+    var email = document.getElementById('pf-input-email').value.trim();
+    document.getElementById('pf-btn-submit').disabled = !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  };
+
+  ['pf-input-vorname', 'pf-input-nachname', 'pf-input-telefon', 'pf-input-email'].forEach(function(id) {
+    var el = document.getElementById(id);
+    if(el) el.addEventListener('input', pfUpdateSubmitBtn);
+  });
+
+  window.pfSubmitForm = function() {
+    var valid = true;
+
+    var vn = document.getElementById('pf-input-vorname').value.trim();
+    var nn = document.getElementById('pf-input-nachname').value.trim();
+    var fVn = document.getElementById('pf-f-vorname');
+    
+    if (!vn && !nn) {
+      fVn.classList.add('pf-has-error');
+      document.getElementById('pf-input-vorname').classList.add('pf-invalid');
+      valid = false;
+    } else {
+      fVn.classList.remove('pf-has-error');
+      document.getElementById('pf-input-vorname').classList.remove('pf-invalid');
+    }
+
+    var tel = document.getElementById('pf-input-telefon').value.trim();
+    var fTel = document.getElementById('pf-f-telefon');
+    if (tel && !/^[+]?[\d\s\-()]{7,20}$/.test(tel)) {
+      fTel.classList.add('pf-has-error');
+      document.getElementById('pf-input-telefon').classList.add('pf-invalid');
+      valid = false;
+    } else {
+      fTel.classList.remove('pf-has-error');
+      document.getElementById('pf-input-telefon').classList.remove('pf-invalid');
+    }
+
+    var email = document.getElementById('pf-input-email').value.trim();
+    var fEmail = document.getElementById('pf-f-email');
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      fEmail.classList.add('pf-has-error');
+      document.getElementById('pf-input-email').classList.add('pf-invalid');
+      valid = false;
+    } else {
+      fEmail.classList.remove('pf-has-error');
+      document.getElementById('pf-input-email').classList.remove('pf-invalid');
+    }
+
+    if (!valid) return;
+
+    var ziele = [];
+    document.querySelectorAll('.pf-multi-opt.selected').forEach(function(el) {
+      ziele.push(el.dataset.value);
+    });
+
+    var payload = {
+      webseitenTyp:         pfState.answers['slide_1'] === 'klassisch' ? 'Klassische Webseite' : 'Onlineshop',
+      bestehendeWeb:        pfState.answers['slide_2'] === 'ja' ? 'Ja' : 'Nein',
+      aktuelleUrl:          document.getElementById('pf-input-url').value.trim(),
+      neuOderUeberarbeiten: pfState.answers['slide_4'] === 'neu' ? 'Neue Webseite erstellen' : (pfState.answers['slide_4'] === 'ueberarbeiten' ? 'Aktuelle Webseite überarbeiten' : ''),
+      ziele:                ziele.join(', '),
+      vorname:              vn,
+      nachname:             nn,
+      unternehmen:          document.getElementById('pf-input-unternehmen').value.trim(),
+      telefon:              tel,
+      email:                email
+    };
+
+    var btn = document.getElementById('pf-btn-submit');
+    btn.disabled = true;
+    btn.textContent = 'Wird gesendet…';
+
+    // --- TELEGRAM INTEGRATION ---
+    var telegramMessage = "🚀 *Neuer Lead: Mach-Dich-Online*\n\n" +
+                          "👤 *Name:* " + payload.vorname + " " + payload.nachname + "\n" +
+                          "🏢 *Firma:* " + (payload.unternehmen || "-") + "\n" +
+                          "📞 *Tel:* " + (payload.telefon || "-") + "\n" +
+                          "✉️ *Email:* " + payload.email + "\n\n" +
+                          "🛠 *Projekt:* " + payload.webseitenTyp + " (" + (payload.neuOderUeberarbeiten || "N/A") + ")\n" +
+                          "🌐 *URL:* " + (payload.aktuelleUrl || "Keine") + "\n" +
+                          "🎯 *Fokus:* " + payload.ziele;
+
+    fetch("https://api.telegram.org/bot" + TELEGRAM_TOKEN + "/sendMessage", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        chat_id: TELEGRAM_CHAT_ID,
+        text: telegramMessage,
+        parse_mode: "Markdown"
+      })
+    }).catch(function(err) { console.error("Telegram Error:", err); });
+
+    // --- GOOGLE SHEET INTEGRATION ---
+    fetch(PF_SHEET_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    })
+    .then(function() {
+      pfShowSlide('success');
+    })
+    .catch(function() {
+      pfShowSlide('success');
+    });
+  };
+
+  pfUpdateProgress(1);
+})();
+    </script>
+</body>
+</html>
