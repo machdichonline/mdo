@@ -31,13 +31,16 @@ if (isHomePage) {
 
 document.addEventListener('DOMContentLoaded', () => {
     
-    // Custom Cursor Logic
+    // Custom Cursor Logic – only on non-touch devices
+    const isTouchDevice = window.matchMedia('(hover: none) and (pointer: coarse)').matches;
     const cursor = document.createElement('div');
     cursor.id = 'custom-cursor';
     const blob = document.createElement('div');
     blob.id = 'cursor-blob';
-    document.body.appendChild(cursor);
-    document.body.appendChild(blob);
+    if (!isTouchDevice) {
+        document.body.appendChild(cursor);
+        document.body.appendChild(blob);
+    }
 
     let mouseX = 0, mouseY = 0;
     let cursorX = 0, cursorY = 0;

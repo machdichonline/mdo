@@ -380,24 +380,22 @@
 
     <main>
         <!-- Hero Section -->
-        <section class="hero" style="min-height: 90vh; display: flex; align-items: center; position: relative; overflow: hidden; padding-top: 180px;">
-            <div class="container" style="display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 80px; align-items: center;">
+        <section class="hero" id="anfrage">
+            <div class="container">
                 <div class="hero-text reveal">
-                    <h1 class="split-text reveal" style="font-size: clamp(3rem, 7vw, 5.5rem); margin-bottom: 24px; line-height: 1.1;">
-                        Mehr Sichtbarkeit.<br />Mehr Kunden.<br /><span class="text-gradient">Eine Website, die wirkt.</span>
+                    <h1 class="split-text reveal" style="font-size: clamp(1.8rem, 4.5vw, 3rem); margin-bottom: 24px; line-height: 1.1;">
+                        Professionelle Webseite für dein Unternehmen. <span class="text-gradient">Werde sichtbar. Gewinne neue Kunden</span>
                     </h1>
-                    <p class="reveal" style="font-size: 18px; color: var(--text-muted); max-width: 650px; margin-bottom: 40px; line-height: 1.7;">
-                        Wir entwickeln maßgeschneiderte Websites, die dein Unternehmen professionell präsentieren und online überzeugen. <br>
-                        Kein Standard, sondern Lösungen, die genau zu dir passen – technisch sauber und visuell stark.
+                    <p class="reveal" style="font-size: 18px; color: var(--text-muted); max-width: 650px; margin-bottom: 25px; line-height: 1.7;">
+                        Egal ob Handwerk, Dienstleistung, Praxis, Gastronomie oder Handel – Wir sorgen für maximale Sichtbarkeit
                     </p>
-                    <div style="display: flex; gap: 20px; align-items: center; margin-bottom: 40px;">
-                        <a href="#leistungen" class="btn">Unsere Leistungen</a>
-                        <a href="/index.html#ueber-uns" class="btn btn-secondary">Die Agentur</a>
-                    </div>
+                    <p class="reveal" style="font-size: 16px; color: var(--text-muted); max-width: 650px; margin-bottom: 40px; line-height: 1.7; opacity: 0.8;">
+                        Beantworte einfach kurz die Fragen im Formular – wir erstellen dir kostenlos und unverbindlich ein passendes Angebot für deine maßgeschneiderte Webseite oder Onlineshop.
+                    </p>
                     <div style="display: flex; gap: 30px; align-items: center;">
                         <div style="display: flex; align-items: center; gap: 8px;">
                              <span style="color: var(--accent); font-weight: 900; letter-spacing: -2px; font-size: 18px;">★★★★★</span>
-                             <span style="font-size: 12px; font-weight: 700; text-transform: uppercase;">Google 5.0</span>
+                             <span style="font-size: 12px; font-weight: 700; text-transform: uppercase;">4,9 von 5 Sternen über 450+ Kunden</span>
                         </div>
                         <div style="width: 1px; height: 20px; background: var(--border);"></div>
                         <div class="trust-badges" style="margin-top: 0; gap: 15px; opacity: 1; filter: none;">
@@ -413,7 +411,7 @@
                     </div>
                 </div>
 
-                <div class="hero-form reveal" style="transition-delay: 0.2s;">
+                <div class="hero-form reveal">
                     <div class="pf-root" style="padding: 0; background: transparent;">
   <div class="pf-wrapper">
     <div class="pf-card">
@@ -530,6 +528,10 @@
           <div class="pf-multi-opts">
             <button class="pf-multi-opt" data-value="Prozesse automatisieren (z.B. Kundenservice, Verkauf, Terminbuchung)" onclick="pfToggleMulti(this)"><span class="pf-check-box"></span>Prozesse automatisieren (z.B. Kundenservice, Verkauf, Terminbuchung)</button>
             <button class="pf-multi-opt" data-value="Anmeldebereich für Kunden oder Mitglieder schaffen" onclick="pfToggleMulti(this)"><span class="pf-check-box"></span>Anmeldebereich für Kunden oder Mitglieder schaffen</button>
+            <button class="pf-multi-opt" data-value="Sonstiges" onclick="pfToggleSonstiges(this)"><span class="pf-check-box"></span>Sonstiges</button>
+            <div id="pf-sonstiges-wrap" style="display:none; margin-top:10px;">
+              <textarea id="pf-input-sonstiges" class="pf-field" style="width:100%; height:80px; padding:12px; border-radius:8px; border:1.5px solid var(--pf-border); background:var(--pf-field-bg); font-family:var(--font-body); font-size:14px; outline:none;" placeholder="Beschreibe kurz was Dir sonst noch wichtig ist..."></textarea>
+            </div>
           </div>
         </div>
 
@@ -601,19 +603,30 @@
             </div>
         </section>
         <!-- Brand Trust Section -->
-        <section class="reveal" style="padding: 60px 0; background: var(--bg-surface); border-bottom: 1px solid var(--border);">
+        <section class="reveal" style="padding: 60px 0; background: #fff; border-bottom: 1px solid var(--border);">
             <div class="container" style="text-align: center;">
-                <span style="color: var(--text-muted); font-weight: 700; text-transform: uppercase; letter-spacing: 0.2em; font-size: 11px; display: block; margin-bottom: 30px; opacity: 0.5;">Vertrauen durch Erfahrung</span>
-                <div class="brand-grid">
-                    <div class="brand-item"><img src="images/m-logo.jpg" alt="MaklerMatcher Logo"></div>
-                    <div class="brand-item"><img src="images/e-logo.png" alt="Engel-Kette Logo"></div>
-                    <div class="brand-item"><img src="images/b-logo.png" alt="Baufinanzservice Logo"></div>
+                <span style="color: #000; font-weight: 700; text-transform: uppercase; letter-spacing: 0.2em; font-size: 11px; display: block; margin-bottom: 30px; opacity: 1;">Über 450 Kunden vertrauen auf uns</span>
+                <div class="brand-marquee">
+                    <div class="marquee-content">
+                        <!-- First set of logos -->
+                        <div class="brand-item"><img src="/images/m-logo.png" alt="M Logo"></div>
+                        <div class="brand-item"><img src="/images/e-logo.png" alt="Engel-Kette Logo"></div>
+                        <div class="brand-item"><img src="/images/b-logo.png" alt="Baufinanzservice Logo"></div>
+                        <div class="brand-item"><img src="/images/-brillanti logo.png" alt="Brillanti Logo"></div>
+                        <div class="brand-item"><img src="/images/p-logo.png" alt="P-Logo"></div>
+                        <!-- Duplicated set for seamless loop -->
+                        <div class="brand-item"><img src="/images/m-logo.png" alt="M Logo"></div>
+                        <div class="brand-item"><img src="/images/e-logo.png" alt="Engel-Kette Logo"></div>
+                        <div class="brand-item"><img src="/images/b-logo.png" alt="Baufinanzservice Logo"></div>
+                        <div class="brand-item"><img src="/images/-brillanti logo.png" alt="Brillanti Logo"></div>
+                        <div class="brand-item"><img src="/images/p-logo.png" alt="P-Logo"></div>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- Intro / Solutions Section -->
-        <section style="background: #fff;">
+        <section style="background: #fff; padding: 100px 0;">
             <div class="container reveal" style="text-align: center; max-width: 900px;">
                 <span style="color: var(--accent); font-weight: 700; text-transform: uppercase; letter-spacing: 0.2em; font-size: 14px; display: block; margin-bottom: 20px;">Deine Vision</span>
                 <h2 class="split-text reveal" style="font-size: clamp(2rem, 4vw, 3.5rem); margin-bottom: 30px;">Lösungen, die dein Business voranbringen</h2>
@@ -623,53 +636,8 @@
             </div>
         </section>
 
-        <!-- Experience Stats Section -->
-        <section style="background: var(--bg-surface); padding: 80px 0;">
-            <div class="container reveal">
-                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px;">
-                    <div class="hover-lift scroll-reveal-item" style="text-align: center; padding: 40px; background: #fff; border-radius: 30px; border: 1px solid var(--border);">
-                        <h3 style="font-size: 50px; color: var(--accent); margin-bottom: 10px;">+450</h3>
-                        <p style="font-size: 14px; text-transform: uppercase; font-weight: 700; letter-spacing: 0.1em; color: var(--text-muted);">Projekte Realisiert</p>
-                    </div>
-                    <div class="hover-lift scroll-reveal-item" style="text-align: center; padding: 40px; background: #fff; border-radius: 30px; border: 1px solid var(--border);" style="transition-delay: 0.1s;">
-                        <h3 style="font-size: 50px; color: var(--accent); margin-bottom: 10px;">5 Sterne</h3>
-                        <p style="font-size: 14px; text-transform: uppercase; font-weight: 700; letter-spacing: 0.1em; color: var(--text-muted);">Kundenzufriedenheit</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Services Section -->
-        <section id="leistungen" style="background: #fff;">
-            <div class="container">
-                <div class="reveal" style="text-align: center; margin-bottom: 100px;">
-                    <span style="color: var(--accent); font-weight: 700; text-transform: uppercase; letter-spacing: 0.2em; font-size: 14px; display: block; margin-bottom: 20px;">Unsere Leistungen</span>
-                    <h2 class="split-text reveal" style="font-size: clamp(2.5rem, 5vw, 4.5rem);">DIGITALER AUFTRITT MIT <span class="text-gradient">STRAHLKRAFT</span></h2>
-                    <p class="split-text reveal" style="color: var(--text-muted); max-width: 800px; margin: 30px auto 0; font-size: 18px; line-height: 1.8;">
-                        Dein Unternehmen ist einzigartig – deine Website sollte es auch sein. Wir kreieren digitale Erlebnisse, die Vertrauen schaffen und deine Kompetenz auf den ersten Blick unterstreichen. Hochwertig, durchdacht und technisch auf höchstem Niveau.
-                    </p>
-                </div>
-                
-                <div class="disziplinen-grid" style="grid-template-columns: repeat(2, 1fr);">
-                    <a href="/services/leistungen.html#webseiten" class="form-card reveal hover-target" style="text-decoration: none; padding: 40px 30px; border-color: transparent; background: #fff; box-shadow: 0 10px 30px rgba(0,0,0,0.02);">
-                        <div style="font-size: 40px; margin-bottom: 25px;">🎨</div>
-                        <h3 style="margin-bottom: 15px; font-size: 20px;" class="text-gradient">Webseiten</h3>
-                        <p style="color: var(--text-muted); font-size: 14px; line-height: 1.7;">Ein Design, das genau zu deiner Marke passt und Besucher sofort in begeisterte Kunden verwandelt.</p>
-                    </a>
-
-                    <a href="/services/leistungen.html#onlineshops" class="form-card reveal hover-target" style="text-decoration: none; padding: 40px 30px; border-color: transparent; background: #fff; box-shadow: 0 10px 30px rgba(0,0,0,0.02); transition-delay: 0.1s;">
-                        <div style="font-size: 40px; margin-bottom: 25px;">🛒</div>
-                        <h3 style="margin-bottom: 15px; font-size: 20px;" class="text-gradient">Online Shops</h3>
-                        <p style="color: var(--text-muted); font-size: 14px; line-height: 1.7;">Wir bauen Shop-Systeme, die einfach zu bedienen sind und deinen digitalen Verkaufsprozess automatisieren.</p>
-                    </a>
-                </div>
-            </div>
-        </section>
-
-
-
         <!-- Über Uns Section -->
-        <section id="ueber-uns" style="padding: 150px 0; position: relative; overflow: hidden;">
+        <section id="ueber-uns" style="padding: 150px 0; position: relative; overflow: hidden; background: var(--bg-surface);">
             <div style="position: absolute; top: 10%; right: -5%; width: 500px; height: 500px; background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%); filter: blur(100px); opacity: 0.4; z-index: -1;"></div>
             <div style="position: absolute; bottom: 0; left: -10%; width: 400px; height: 400px; background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%); filter: blur(80px); opacity: 0.3; z-index: -1;"></div>
             <div class="container">
@@ -714,16 +682,16 @@
                             </ul>
                         </div>
 
-                        <div style="position: relative; padding: 30px 40px; background: rgba(149, 209, 0, 0.05); border-radius: 20px; border-left: 4px solid var(--accent); margin-bottom: 40px;">
+                        <div style="position: relative; padding: 30px 40px; background: rgba(255, 255, 255, 0.5); border-radius: 20px; border-left: 4px solid var(--accent); margin-bottom: 40px;">
                             <svg style="position: absolute; top: 15px; left: 15px; opacity: 0.1; color: var(--accent);" width="40" height="40" viewBox="0 0 24 24" fill="currentColor"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.437.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
                             <p style="color: var(--text-main); font-size: 16px; line-height: 1.8; font-style: italic; position: relative; z-index: 1;">
                                 Wir glauben: Eine starke Online-Präsenz ist heute kein Luxus mehr, sondern entscheidend für den Unternehmenserfolg. Genau hier setzen wir an – zuverlässig, kreativ und mit Leidenschaft.
                             </p>
                         </div>
                         
-                        <a href="/anfrage.html" class="btn btn-secondary">Projekt starten</a>
+                        <a href="#anfrage" class="btn btn-secondary">Projekt starten</a>
                     </div>
-                    <div class="reveal" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 25px;">
+                    <div class="reveal mission-grid">
                         <div class="hover-lift" style="padding: 50px 30px; background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); border-radius: 24px; border: 1px solid rgba(255, 255, 255, 1); box-shadow: 0 20px 40px rgba(0,0,0,0.04); text-align: center; position: relative; overflow: hidden;">
                             <div style="position: absolute; top: -10px; right: -10px; width: 60px; height: 60px; background: radial-gradient(circle, var(--accent) 0%, transparent 60%); opacity: 0.1;"></div>
                             <h3 style="color: var(--accent); font-size: 48px; font-weight: 900; margin-bottom: 5px;">5+</h3>
@@ -736,15 +704,42 @@
                         </div>
                         <div class="hover-lift" style="padding: 50px 30px; background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); border-radius: 24px; border: 1px solid rgba(255, 255, 255, 1); box-shadow: 0 20px 40px rgba(0,0,0,0.04); text-align: center; position: relative; overflow: hidden;">
                             <div style="position: absolute; top: -10px; right: -10px; width: 60px; height: 60px; background: radial-gradient(circle, var(--accent) 0%, transparent 60%); opacity: 0.1;"></div>
-                            <h3 style="color: var(--accent); font-size: 48px; font-weight: 900; margin-bottom: 5px;">DE</h3>
-                            <p style="font-size: 11px; text-transform: uppercase; font-weight: 800; letter-spacing: 0.15em; color: var(--text-muted);">Bundesweit</p>
+                            <h3 style="color: var(--accent); font-size: 48px; font-weight: 900; margin-bottom: 5px;">450+</h3>
+                            <p style="font-size: 11px; text-transform: uppercase; font-weight: 800; letter-spacing: 0.15em; color: var(--text-muted);">Projekte realisiert</p>
                         </div>
                         <div class="hover-lift" style="padding: 50px 30px; background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); border-radius: 24px; border: 1px solid rgba(255, 255, 255, 1); box-shadow: 0 20px 40px rgba(0,0,0,0.04); text-align: center; position: relative; overflow: hidden;">
                             <div style="position: absolute; top: -10px; right: -10px; width: 60px; height: 60px; background: radial-gradient(circle, var(--accent) 0%, transparent 60%); opacity: 0.1;"></div>
-                            <h3 style="color: var(--accent); font-size: 48px; font-weight: 900; margin-bottom: 5px;">100%</h3>
-                            <p style="font-size: 11px; text-transform: uppercase; font-weight: 800; letter-spacing: 0.15em; color: var(--text-muted);">Leidenschaft</p>
+                            <h3 style="color: var(--accent); font-size: 48px; font-weight: 900; margin-bottom: 5px;">5✮</h3>
+                            <p style="font-size: 11px; text-transform: uppercase; font-weight: 800; letter-spacing: 0.15em; color: var(--text-muted);">Kundenbewertungen</p>
                         </div>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="leistungen" style="background: #fff; padding: 120px 0;">
+            <div class="container">
+                <div class="reveal" style="text-align: center; margin-bottom: 100px;">
+                    <span style="color: var(--accent); font-weight: 700; text-transform: uppercase; letter-spacing: 0.2em; font-size: 14px; display: block; margin-bottom: 20px;">Unsere Leistungen</span>
+                    <h2 class="split-text reveal" style="font-size: clamp(2.5rem, 5vw, 4.5rem);">INDIVIDUELLE LÖSUNGEN FÜR DEINEN <span class="text-gradient">DIGITALEN AUFTRITT</span></h2>
+                    <p class="split-text reveal" style="color: var(--text-muted); max-width: 800px; margin: 30px auto 0; font-size: 18px; line-height: 1.8;">
+                        Dein Unternehmen ist einzigartig – deine Website sollte es auch sein. Wir kreieren digitale Erlebnisse, die Vertrauen schaffen und deine Kompetenz auf den ersten Blick unterstreichen. Hochwertig, durchdacht und technisch auf höchstem Niveau.
+                    </p>
+                </div>
+                
+                <div class="disziplinen-grid">
+                    <a href="/services/leistungen.html#webseiten" class="form-card reveal hover-target" style="text-decoration: none; padding: 40px 30px; border-color: transparent; background: #fff; box-shadow: 0 10px 30px rgba(0,0,0,0.02);">
+                        <div style="font-size: 40px; margin-bottom: 25px;">🎨</div>
+                        <h3 style="margin-bottom: 15px; font-size: 20px;" class="text-gradient">Webseiten</h3>
+                        <p style="color: var(--text-muted); font-size: 14px; line-height: 1.7;">Deine professionelle Website – für mehr Sichtbarkeit, Vertrauen und neue Kunden. Ob neue Website oder die Modernisierung deines bestehenden Auftritts. Wir entwickeln die passende Lösung für dein Unternehmen.</p>
+                    </a>
+
+                    <a href="/services/leistungen.html#onlineshops" class="form-card reveal hover-target" style="text-decoration: none; padding: 40px 30px; border-color: transparent; background: #fff; box-shadow: 0 10px 30px rgba(0,0,0,0.02); transition-delay: 0.1s;">
+                        <div style="font-size: 40px; margin-bottom: 25px;">🛒</div>
+                        <h3 style="margin-bottom: 15px; font-size: 20px;" class="text-gradient">Online Shops</h3>
+                        <p style="color: var(--text-muted); font-size: 14px; line-height: 1.7;">Dein professioneller Onlineshop – einfach zu bedienen und dein nächster Schritt in den digitalen Verkauf. Perfekt für den Start oder um deinen bestehenden Verkauf weiter auszubauen.</p>
+                    </a>
                 </div>
             </div>
         </section>
@@ -755,7 +750,7 @@
             <div class="container">
                 <div class="reveal" style="text-align: center; margin-bottom: 100px;">
                     <span style="color: var(--accent); font-weight: 700; text-transform: uppercase; letter-spacing: 0.2em; font-size: 14px;">Ablauf</span>
-                    <h2 style="font-size: clamp(2.5rem, 5vw, 4.5rem); margin-top: 20px;">Dein Weg zum <span class="text-gradient">digitalen Unikat</span></h2>
+                    <h2 style="font-size: clamp(2rem, 5vw, 3.5rem); margin-top: 20px;">Dein Weg zum <span class="text-gradient">digitalen Unikat</span></h2>
                 </div>
                 
                 <div class="workflow-timeline">
@@ -801,49 +796,67 @@
                         </div>
                     </div>
                 </div>
+                <!-- Ablauf CTA -->
+                <div style="text-align: center; margin-top: 80px;" class="reveal">
+                    <a href="#anfrage" class="btn">Projekt starten</a>
+                </div>
             </div>
         </section>
 
-        <section style="padding: 150px 0; background: #fff;">
+        <section class="faq-green-bg" style="padding: 150px 0;">
             <div class="container reveal">
                 <div style="text-align: center; margin-bottom: 80px;">
-                    <h2 style="font-size: clamp(2rem, 5vw, 4rem);">Häufige <span class="text-gradient">Fragen</span></h2>
+                    <h2 style="font-size: clamp(1.8rem, 4.5vw, 3.2rem);">Häufige <span class="text-gradient">Fragen</span></h2>
                 </div>
                 <div class="faq-accordion">
+                    <!-- Item 1 -->
                     <div class="faq-item">
                         <div class="faq-header" onclick="this.parentElement.classList.toggle('active')">
-                            <h4>Was kostet eine professionelle Webseite?</h4>
+                            <h4>Was kostet die Erstellung einer professionellen Webseite?</h4>
                             <div class="faq-icon">+</div>
                         </div>
                         <div class="faq-content">
-                            <p style="color: var(--text-muted); font-size: 15px; line-height: 1.7;">Die Kosten hängen vom Umfang und den Funktionen ab. Eine funktionale Onepage-Webseite erhältst du bei uns bereits ab 990 € zzgl. MwSt.</p>
+                            <p style="color: var(--text-muted); font-size: 15px; line-height: 1.7;">Die Kosten für eine professionelle Website oder einen Onlineshop sind immer individuell und hängen davon ab, was du benötigst. Beantworte einfach kurz die Fragen im Formular – wir melden uns anschließend bei dir und besprechen, welches Angebot am besten zu deinem Unternehmen passt.</p>
                         </div>
                     </div>
+                    <!-- Item 2 -->
                     <div class="faq-item">
                         <div class="faq-header" onclick="this.parentElement.classList.toggle('active')">
-                            <h4>Wie lange dauert die Umsetzung?</h4>
+                            <h4>Welche Leistungen sind im Preis enthalten?</h4>
                             <div class="faq-icon">+</div>
                         </div>
                         <div class="faq-content">
-                            <p style="color: var(--text-muted); font-size: 15px; line-height: 1.7;">Regelmäßig zwischen wenigen Tagen und etwa vier Wochen, je nach Projektumfang.</p>
+                            <p style="color: var(--text-muted); font-size: 15px; line-height: 1.7;">Unser unverbindliches Angebot versteht sich als Komplettpreis, der alle notwendigen Schritte bis zur Veröffentlichung deiner Webseite umfasst. Dazu gehören Beratung und Planung, Konzeption, Umsetzung, Hosting sowie gegebenenfalls Korrekturschleifen.</p>
                         </div>
                     </div>
+                    <!-- Item 3 -->
                     <div class="faq-item">
                         <div class="faq-header" onclick="this.parentElement.classList.toggle('active')">
-                            <h4>Sind die Webseiten individuell?</h4>
+                            <h4>Wie lange dauert die Fertigstellung meiner Webseite?</h4>
                             <div class="faq-icon">+</div>
                         </div>
                         <div class="faq-content">
-                            <p style="color: var(--text-muted); font-size: 15px; line-height: 1.7;">Absolut. Jede Webseite ist ein Unikat, maßgeschneidert auf deine Anforderungen ohne fertige Themes.</p>
+                            <p style="color: var(--text-muted); font-size: 15px; line-height: 1.7;">Die Dauer hängt vom Umfang und den gewünschten Funktionen ab. Eine Website ist in der Regel innerhalb von bis zu 7 Tagen fertig. Für einen Onlineshop solltest du – je nach Umfang – mit bis zu 3 Wochen rechnen. Nach deiner Anfrage im Formular besprechen wir gemeinsam, welcher Zeitrahmen zu deinem Projekt passt.</p>
                         </div>
                     </div>
+                    <!-- Item 4 -->
                     <div class="faq-item">
                         <div class="faq-header" onclick="this.parentElement.classList.toggle('active')">
-                            <h4>Was unterscheidet euch von anderen?</h4>
+                            <h4>Wird die Webseite individuell gestaltet oder basiert sie auf Vorlagen?</h4>
                             <div class="faq-icon">+</div>
                         </div>
                         <div class="faq-content">
-                            <p style="color: var(--text-muted); font-size: 15px; line-height: 1.7;">Wir kombinieren persönliche Betreuung mit kompromissloser technischer Exzellenz. Keine Baukasten-Limits.</p>
+                            <p style="color: var(--text-muted); font-size: 15px; line-height: 1.7;">Jede von uns erstellte Webseite ist ein individuelles Unikat. Design und Struktur werden vollständig maßgeschneidert und exakt an deine Anforderungen und Wünsche angepasst.</p>
+                        </div>
+                    </div>
+                    <!-- Item 5 -->
+                    <div class="faq-item">
+                        <div class="faq-header" onclick="this.parentElement.classList.toggle('active')">
+                            <h4>Kann ich meine Webseite später selbst bearbeiten?</h4>
+                            <div class="faq-icon">+</div>
+                        </div>
+                        <div class="faq-content">
+                            <p style="color: var(--text-muted); font-size: 15px; line-height: 1.7;">Die Dauer hängt vom Umfang und den gewünschten Funktionen ab. Eine Website ist in der Regel innerhalb von bis zu 7 Tagen fertig. Für einen Onlineshop solltest du – je nach Umfang – mit bis zu 3 Wochen rechnen. Nach deiner Anfrage im Formular besprechen wir gemeinsam, welcher Zeitrahmen zu deinem Projekt passt.</p>
                         </div>
                     </div>
                 </div>
@@ -860,11 +873,11 @@
             <div class="container reveal" style="text-align: center; background: var(--bg-surface); border-radius: 60px; padding: 120px 40px; border: 1px solid var(--border); overflow: hidden; position: relative;">
                 <div style="position: absolute; width: 400px; height: 400px; background: var(--accent-glow); filter: blur(100px); top: -200px; right: -200px; border-radius: 50%;"></div>
                 <div class="reveal" style="text-align: center; max-width: 900px; margin: 0 auto;">
-                    <h2 style="font-size: clamp(2.5rem, 6vw, 5rem); margin-bottom: 40px; line-height: 1.1;">Bereit für digitale <span class="text-gradient">Überlegenheit</span>?</h2>
+                    <h2 style="font-size: clamp(2.2rem, 5.5vw, 4rem); margin-bottom: 40px; line-height: 1.1;">Bereit für digitale <span class="text-gradient">Überlegenheit</span>?</h2>
                     <p style="color: var(--text-muted); font-size: 20px; margin-bottom: 50px; line-height: 1.6;">
                         Lass uns gemeinsam etwas Großartiges erschaffen. Dein Erfolg im Netz beginnt mit dem ersten Schritt.
                     </p>
-                    <a href="/anfrage.html" class="btn" style="padding: 22px 50px; font-size: 18px;">Jetzt Angebot erhalten</a>
+                    <a href="#anfrage" class="btn" style="padding: 22px 50px; font-size: 18px;">Jetzt Angebot erhalten</a>
                     <p style="font-size: 13px; color: var(--text-muted); margin-top: 20px; font-weight: 600;">100% unverbindlich und kostenfrei</p>
                 </div>
             </div>
@@ -879,21 +892,21 @@
                     <p style="color: var(--text-muted); margin-top: 30px;">Tipps, Guides und Experten-Analysen für deinen digitalen Erfolg.</p>
                 </div>
                 
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 40px; margin-bottom: 80px;">
-                    <a href="/blog/baukasten-vs-profi.html" class="form-card reveal hover-target" style="text-decoration: none; padding: 40px; background: #fff;">
-                        <span style="color: var(--accent); font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 20px; display: block;">Strategie | 8 Min</span>
-                        <h4 style="margin-bottom: 15px; color: var(--text-main); font-size: 20px;">Baukasten vs. Custom Code</h4>
-                        <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 25px; line-height: 1.6;">Warum deine Website mehr als nur ein Template braucht. Ein technischer Deep Dive in Performance und ROI.</p>
+                <div class="blog-grid">
+                    <a href="/blog/warum-jedes-unternehmen-eine-website-braucht.html" class="form-card reveal hover-target" style="text-decoration: none; padding: 40px; background: #fff;">
+                        <span style="color: var(--accent); font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 20px; display: block;">Strategie | 5 Min</span>
+                        <h4 style="margin-bottom: 15px; color: var(--text-main); font-size: 20px;">Warum jedes Unternehmen eine Website braucht</h4>
+                        <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 25px; line-height: 1.6;">In einer zunehmend digitalen Welt ist die eigene Website das Herzstück Ihrer Reputation. Erfahren Sie, warum...</p>
                         <span style="font-weight: 700; text-transform: uppercase; font-size: 12px; color: var(--accent);">Vollständigen Guide lesen →</span>
                     </a>
-                    <a href="/blog/saas-design-storytelling.html" class="form-card reveal hover-target" style="text-decoration: none; padding: 40px; background: #fff; transition-delay: 0.1s;">
-                        <span style="color: var(--accent); font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 20px; display: block;">Produktdesign | 11 Min</span>
-                        <h4 style="margin-bottom: 15px; color: var(--text-main); font-size: 20px;">SaaS-Design & Storytelling</h4>
-                        <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 25px; line-height: 1.6;">Warum dein Software-Produkt Geschichten erzählen muss statt nur Features aufzulisten. Der moderne Web-Leitfaden.</p>
+                    <a href="/blog/seo-strategie-2026.html" class="form-card reveal hover-target" style="text-decoration: none; padding: 40px; background: #fff; transition-delay: 0.1s;">
+                        <span style="color: var(--accent); font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 20px; display: block;">Sichtbarkeit | 15 Min</span>
+                        <h4 style="margin-bottom: 15px; color: var(--text-main); font-size: 20px;">SEO Strategie 2026</h4>
+                        <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 25px; line-height: 1.6;">Vergessen Sie Keyword-Stuffing. So funktioniert moderne Suchmaschinenoptimierung heute...</p>
                         <span style="font-weight: 700; text-transform: uppercase; font-size: 12px; color: var(--accent);">Strategie ansehen →</span>
                     </a>
                 </div>
-                <div style="text-align: center;">
+                <div style="text-align: center; margin-top: 50px;">
                     <a href="/blog/index.html" class="btn btn-secondary">Zum Content Hub</a>
                 </div>
             </div>
@@ -958,6 +971,12 @@
 
   window.pfToggleMulti = function(btn) { btn.classList.toggle('selected'); };
 
+  window.pfToggleSonstiges = function(btn) {
+    btn.classList.toggle('selected');
+    var wrap = document.getElementById('pf-sonstiges-wrap');
+    if (wrap) wrap.style.display = btn.classList.contains('selected') ? 'block' : 'none';
+  };
+
   window.pfUpdateSubmitBtn = function() {
     var email = document.getElementById('pf-input-email').value.trim();
     document.getElementById('pf-btn-submit').disabled = !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
@@ -1012,6 +1031,11 @@
     document.querySelectorAll('.pf-multi-opt.selected').forEach(function(el) {
       ziele.push(el.dataset.value);
     });
+    
+    var sonstigesText = document.getElementById('pf-input-sonstiges').value.trim();
+    if (sonstigesText && document.querySelector('.pf-multi-opt[data-value="Sonstiges"]').classList.contains('selected')) {
+      ziele.push("Sonstiges: " + sonstigesText);
+    }
 
     var payload = {
       webseitenTyp:         pfState.answers['slide_1'] === 'klassisch' ? 'Klassische Webseite' : 'Onlineshop',

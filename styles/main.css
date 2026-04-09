@@ -94,6 +94,10 @@ h1, h2, h3, h4, h5 {
     color: var(--text-main);
 }
 
+h1 { font-size: clamp(3rem, 7vw, 5rem); }
+h2 { font-size: clamp(2rem, 5vw, 3.5rem); }
+h3 { font-size: clamp(1.5rem, 3vw, 2.2rem); }
+
 .text-gradient {
     display: inline-block;
     color: var(--accent); /* Fallback color */
@@ -140,9 +144,9 @@ section {
     padding: 120px 0;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 991px) {
     section {
-        padding: 80px 0;
+        padding: 60px 0;
     }
 }
 
@@ -399,14 +403,81 @@ nav.scrolled {
         margin-top: 20px;
     }
     
-    /* Contact Page Layout Stacking */
-    main section div.container > div[style*="grid-template-columns"] {
+    /* Global Grid Stacking */
+    .container > div[style*="grid-template-columns"] {
         grid-template-columns: 1fr !important;
-        gap: 50px !important;
+        gap: 40px !important;
     }
     
     .disziplinen-grid {
         grid-template-columns: 1fr;
+    }
+
+    /* Responsive Grid Classes */
+    .stats-grid, .mission-grid, .disziplinen-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    /* Background Text Correction */
+    [style*="font-size: 800px"], [style*="font-size: 500px"] {
+        font-size: clamp(5rem, 25vw, 12rem) !important;
+    }
+}
+
+/* Hero Section Styles */
+.hero {
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    padding-top: 180px;
+}
+
+.hero .container {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 80px;
+    align-items: center;
+}
+
+.hero-text {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-form {
+    position: relative;
+    z-index: 2;
+}
+
+@media (max-width: 991px) {
+    .hero {
+        padding-top: 140px;
+        padding-bottom: 60px;
+        min-height: auto;
+    }
+    
+    .hero .container {
+        grid-template-columns: 1fr !important;
+        gap: 60px !important;
+        text-align: center;
+    }
+
+    .hero-text h1 {
+        font-size: clamp(2.5rem, 10vw, 4rem) !important;
+    }
+
+    .hero-text p {
+        margin: 0 auto 40px !important;
+    }
+
+    .hero-text div[style*="display: flex"] {
+        justify-content: center;
+    }
+
+    .hero-form {
+        margin-top: 20px;
     }
 }
 
@@ -492,10 +563,18 @@ footer {
 }
 
 .splash-logo-image {
-    height: 120px;
+    height: 220px;
     width: auto;
     filter: drop-shadow(0 20px 60px var(--accent-glow));
     will-change: transform;
+}
+
+@media (max-width: 768px) {
+    .splash-logo-image {
+        width: 80%;
+        max-width: 250px;
+        height: auto;
+    }
 }
 
 /* Flight Animation class */
@@ -655,10 +734,29 @@ main {
     .hero-text { text-align: center; }
 }
 
-/* Grid Responsiveness */
+/* Grid Responsiveness Defaults */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+.mission-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 40px;
+    margin-bottom: 80px;
+}
+
 .disziplinen-grid, .stats-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 30px;
 }
 
@@ -927,12 +1025,12 @@ main {
 /* --- Brand Logos Hover --- */
 .brand-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 60px;
     align-items: center;
     justify-items: center;
     padding: 40px 0;
-    max-width: 1000px;
+    max-width: 1200px;
     margin: 0 auto;
 }
 
@@ -940,7 +1038,15 @@ main {
     filter: grayscale(1);
     opacity: 0.5;
     transition: all 0.4s ease;
-    max-width: 220px;
+    flex-shrink: 0;
+}
+
+.brand-item img {
+    height: 40px;
+    width: auto;
+    max-width: 100%;
+    object-fit: contain;
+    display: block;
 }
 
 .brand-item:hover {
@@ -949,11 +1055,50 @@ main {
     transform: scale(1.05);
 }
 
-.brand-item img {
+/* --- Marquee Animation --- */
+.brand-marquee {
+    overflow: hidden;
     width: 100%;
-    height: auto;
-    display: block;
+    position: relative;
+    padding: 20px 0;
 }
+
+.marquee-content {
+    display: flex;
+    gap: 100px;
+    width: max-content;
+    animation: marquee 40s linear infinite;
+}
+
+.marquee-content:hover {
+    animation-play-state: paused;
+}
+
+@keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+.faq-green-bg {
+    background: rgba(149, 209, 0, 0.08) !important;
+}
+
+@media (max-width: 768px) {
+    .brand-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+    .brand-item {
+        filter: grayscale(0);
+        opacity: 1;
+        transition: none;
+    }
+    .brand-item:hover {
+        transform: none;
+    }
+}
+
+
 
 /* Vertical Timeline Workflow */
 .workflow-timeline {
@@ -1089,4 +1234,11 @@ main {
         right: auto !important;
         top: 20px;
     }
+}
+
+
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(0.95); opacity: 0.8; }
 }
