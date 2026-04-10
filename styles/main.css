@@ -823,7 +823,11 @@ main {
     max-width: 900px;
     margin: 0 auto;
 }
-
+@media (min-width: 1024px) {
+  .disziplinen-grid {
+    display: flex;
+  }
+}
 .ueber-uns-grid {
     display: grid;
     grid-template-columns: 1fr 1.2fr;
