@@ -367,7 +367,6 @@ nav.scrolled {
 @media (max-width: 991px) {
     .nav-content {
         padding: 15px 0;
-        padding-top: 51px; /* iOS 36px safe area fix: 15px base + 36px offset */
     }
 }
 
