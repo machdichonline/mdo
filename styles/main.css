@@ -379,7 +379,6 @@ nav.scrolled {
     z-index: 1200;
     transition: var(--transition-smooth);
     padding: 10px;
-    margin-right: -10px;
 }
 
 .hamburger span {
