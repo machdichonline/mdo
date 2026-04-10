@@ -826,6 +826,8 @@ main {
 @media (min-width: 1024px) {
   .disziplinen-grid {
     display: flex;
+      gap: 0px;
+      max-width: 100%;
   }
 }
 .ueber-uns-grid {
