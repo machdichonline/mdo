@@ -1055,6 +1055,15 @@
     btn.disabled = true;
     btn.textContent = 'Wird gesendet…';
 
+      // --- GOOGLE ADS CONVERSION ---
+if (typeof gtag === 'function') {
+  gtag('event', 'conversion', {
+    'send_to': 'AW-18056127203/Vg9dCKr3x5kcEOPF6qFD',
+    'value': 1.0,
+    'currency': 'EUR'
+  });
+}
+
     // --- TELEGRAM INTEGRATION ---
     var telegramMessage = "🚀 *Neuer Lead: Hero-Formular*\n\n" +
                           "👤 *Name:* " + payload.vorname + " " + payload.nachname + "\n" +
