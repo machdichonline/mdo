@@ -273,5 +273,51 @@ document.addEventListener('DOMContentLoaded', () => {
         
     };
 
-    loadComponents();
+    // Cookie Banner Logic
+    const initCookieBanner = () => {
+        const consent = localStorage.getItem('md_cookie_consent');
+        if (consent) return;
+
+        const banner = document.createElement('div');
+        banner.id = 'cookie-banner';
+        banner.innerHTML = `
+            <div class="cookie-content">
+                <img src="/logo.png" alt="Logo" class="cookie-logo">
+                <h4 style="margin-bottom: 10px;">Deine Privatsphäre ist uns wichtig</h4>
+                <p style="font-size: 14px; color: var(--text-muted); line-height: 1.6;">
+                    Wir nutzen Cookies, um deine Erfahrung auf unserer Website zu verbessern. Einige sind essenziell, während andere uns helfen, diese Website und dein Erlebnis zu verbessern.
+                </p>
+            </div>
+            <div class="cookie-buttons">
+                <button class="cookie-btn cookie-btn-secondary" id="cookie-reject">Ablehnen</button>
+                <button class="cookie-btn cookie-btn-secondary" id="cookie-essential">Nur essenziell</button>
+                <button class="cookie-btn cookie-btn-primary" id="cookie-accept">Alle akzeptieren</button>
+            </div>
+        `;
+        document.body.appendChild(banner);
+
+        // Show banner with small delay
+        setTimeout(() => banner.classList.add('active'), 1000);
+
+        const handleConsent = (type) => {
+            localStorage.setItem('md_cookie_consent', type);
+            banner.classList.remove('active');
+            setTimeout(() => banner.remove(), 600);
+            
+            // Here you would normally initialize scripts based on 'type'
+            console.log(`Cookie consent: ${type}`);
+            if (type === 'all' || type === 'essential') {
+                // Initialize analytics if allowed
+            }
+        };
+
+        document.getElementById('cookie-accept').addEventListener('click', () => handleConsent('all'));
+        document.getElementById('cookie-reject').addEventListener('click', () => handleConsent('none'));
+        document.getElementById('cookie-essential').addEventListener('click', () => handleConsent('essential'));
+    };
+
+    // Initialize components
+    loadComponents().then(() => {
+        initCookieBanner();
+    });
 });
