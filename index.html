@@ -40,6 +40,7 @@
   .pf-wrapper {
     width: 100%;
     max-width: 560px;
+    scroll-margin-top: 100px;
   }
 
   .pf-card {
@@ -383,7 +384,7 @@
         <section class="hero" id="anfrage">
             <div class="container">
                 <div class="hero-text reveal">
-                    <h1 class="split-text reveal" style="font-size: clamp(1.8rem, 4.5vw, 3rem); margin-bottom: 24px; line-height: 1.1;">
+                    <h1 class="split-text reveal" style="font-size: clamp(1.8rem, 4.5vw, 3rem); margin-bottom: 30px; line-height: 1.1;">
                         Wir erstellen eine Professionelle WEbseite für dein UNternehmen. <span class="text-gradient">Werde sichtbar. Gewinne neue Kunden</span>
                     </h1>
                     <p class="reveal" style="font-size: 18px; color: var(--text-muted); max-width: 650px; margin-bottom: 25px; line-height: 1.7;">
@@ -392,22 +393,21 @@
                     <p class="reveal" style="font-size: 16px; color: var(--text-muted); max-width: 650px; margin-bottom: 40px; line-height: 1.7; opacity: 0.8;">
                         Beantworte einfach kurz die Fragen im Formular – wir erstellen dir kostenlos und unverbindlich ein passendes Angebot für deine maßgeschneiderte Webseite oder Onlineshop.
                     </p>
-                    <div style="display: flex; gap: 30px; align-items: center;">
-                        <div style="display: flex; align-items: center; gap: 8px;">
-                             <span style="color: var(--accent); font-weight: 900; letter-spacing: -2px; font-size: 18px;">★★★★★</span>
-                             <span style="font-size: 12px; font-weight: 700; text-transform: uppercase;">4,9 von 5 Sternen | Über 450+ Kunden</span>
-                        </div>
-                        <div style="width: 1px; height: 20px; background: var(--border);"></div>
-                        <div class="trust-badges" style="margin-top: 0; gap: 15px; opacity: 1; filter: none;">
-                            <div class="badge-item" style="flex-direction: row; gap: 5px;">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="color: var(--accent);"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                                <span style="font-size: 9px; font-weight: 800;">SSL</span>
-                            </div>
-                            <div class="badge-item" style="flex-direction: row; gap: 5px;">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="color: var(--accent);"><polyline points="20 6 9 17 4 12"/></svg>
-                                <span style="font-size: 9px; font-weight: 800;">DSGVO</span>
-                            </div>
-                        </div>
+                    <div class="hero-trust-new" style="display: flex; flex-direction: column; gap: 15px; margin-top: 40px;">
+                         <div class="badge-box-row" style="display: flex; gap: 12px;">
+                             <div class="badge-item-box" style="display: flex; align-items: center; gap: 8px; background: rgba(149, 209, 0, 0.1); padding: 8px 16px; border-radius: 8px; border: 1px solid rgba(149, 209, 0, 0.3);">
+                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="color: var(--accent);"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                                 <span style="font-size: 11px; font-weight: 800; text-transform: uppercase;">100% Sicher / SSL</span>
+                             </div>
+                             <div class="badge-item-box" style="display: flex; align-items: center; gap: 8px; background: rgba(149, 209, 0, 0.1); padding: 8px 16px; border-radius: 8px; border: 1px solid rgba(149, 209, 0, 0.3);">
+                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="color: var(--accent);"><polyline points="20 6 9 17 4 12"/></svg>
+                                 <span style="font-size: 11px; font-weight: 800; text-transform: uppercase;">DSGVO Konform</span>
+                             </div>
+                         </div>
+                         <div class="stars-full-row" style="display: flex; align-items: center; gap: 12px; width: 100%;">
+                             <span style="color: var(--accent); font-weight: 900; letter-spacing: 2px; font-size: 20px;">★★★★★</span>
+                             <span style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--text-main); opacity: 0.8;">4,9 von 5 Sternen | Über 450+ Kunden</span>
+                         </div>
                     </div>
                 </div>
 
@@ -637,14 +637,14 @@
                 </div>
                 
                 <div class="disziplinen-grid">
-                    <a href="/services/leistungen.html#webseiten" class="form-card reveal hover-target" style="text-decoration: none; padding: 40px 30px; border-color: transparent; background: #fff; box-shadow: 0 10px 30px rgba(0,0,0,0.02);">
-                        <img src="/images/webdesign-premium.jpg" alt="Webseiten" style="width: 100%; height: auto; border-radius: 12px; margin-bottom: 25px;">
+                    <a href="/services/leistungen.html#webseiten" class="form-card reveal hover-target service-card">
+                        <img src="/images/webdesign-premium.jpg" alt="Webseiten" class="service-card-img">
                         <h3 style="margin-bottom: 15px; font-size: 20px;" class="text-gradient">Webseiten</h3>
                         <p style="color: var(--text-muted); font-size: 14px; line-height: 1.7;">Deine professionelle Website – für mehr Sichtbarkeit, Vertrauen und neue Kunden. Ob neue Website oder die Modernisierung deines bestehenden Auftritts. Wir entwickeln die passende Lösung für dein Unternehmen.</p>
                     </a>
 
-                    <a href="/services/leistungen.html#onlineshops" class="form-card reveal hover-target" style="text-decoration: none; padding: 40px 30px; border-color: transparent; background: #fff; box-shadow: 0 10px 30px rgba(0,0,0,0.02); transition-delay: 0.1s;">
-                        <img src="/images/onlineshop-erstellung.jpg" alt="Online Shops" style="width: 100%; height: auto; border-radius: 12px; margin-bottom: 25px;">
+                    <a href="/services/leistungen.html#onlineshops" class="form-card reveal hover-target service-card" style="transition-delay: 0.1s;">
+                        <img src="/images/onlineshop-erstellung.jpg" alt="Online Shops" class="service-card-img">
                         <h3 style="margin-bottom: 15px; font-size: 20px;" class="text-gradient">Online Shops</h3>
                         <p style="color: var(--text-muted); font-size: 14px; line-height: 1.7;">Dein professioneller Onlineshop – einfach zu bedienen und dein nächster Schritt in den digitalen Verkauf. Perfekt für den Start oder um deinen bestehenden Verkauf weiter auszubauen.</p>
                     </a>
@@ -937,6 +937,9 @@
     document.getElementById('pf-progress-wrap').style.display = isSuccess ? 'none' : '';
     if (!isSuccess) pfUpdateProgress(id);
     pfState.currentSlide = id;
+
+    // Scroll to form on mobile for better visibility
+        document.querySelector('.pf-wrapper').scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 
   window.pfSelectAndAdvance = function(btn, next) {
@@ -1089,3 +1092,4 @@
     </script>
 </body>
 </html>
+

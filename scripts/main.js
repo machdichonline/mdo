@@ -214,6 +214,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     headerPlaceholder.innerHTML = html;
                     handleScroll();
                     
+                    const currentPath = window.location.pathname;
+                    
                     const hamburger = document.getElementById('hamburger');
                     const navLinks = document.getElementById('nav-links');
                     if (hamburger && navLinks) {
@@ -222,6 +224,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             navLinks.classList.toggle('active');
                             document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
                         });
+
                         navLinks.querySelectorAll('a').forEach(link => {
                             link.addEventListener('click', () => {
                                 hamburger.classList.remove('active');
@@ -230,8 +233,6 @@ document.addEventListener('DOMContentLoaded', () => {
                             });
                         });
                     }
-                    
-                    const currentPath = window.location.pathname;
                     document.querySelectorAll('.nav-links a').forEach(link => {
                         const href = link.getAttribute('href');
                         if (href && currentPath === href) {
