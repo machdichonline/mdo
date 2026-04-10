@@ -1,3 +1,7 @@
+html {
+    scroll-behavior: smooth;
+}
+
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;900&family=Inter:wght@400;500;700&display=swap');
 
 :root {
@@ -471,7 +475,7 @@ nav.scrolled {
 .hero-text {
     position: relative;
     z-index: 2;
-    margin-top: 180px !important; /* Force text down from the header on desktop */
+    margin-top: 152px !important; /* Force text down from the header on desktop */
 }
 
 .hero-form {
@@ -758,10 +762,28 @@ main {
     h1 { font-size: 3.5rem; }
 }
 
+.mobile-only { display: none !important; }
+.desktop-only { display: block !important; }
+
 @media (max-width: 768px) {
+    .desktop-only { display: none !important; }
+    .mobile-only { display: block !important; }
     h1 { font-size: 2.8rem; }
     h2 { font-size: 2.2rem; }
-    .hero-text { text-align: center; }
+    .hero { padding-top: 120px; } /* Increased to ensure clearance of header */
+    .hero-text { 
+        margin-top: 20px !important; 
+        text-align: center; 
+    }
+    /* Mobile-only full gradient for the hero headline */
+    .hero-text h1,
+    .hero-text h1 .split-child {
+        background: linear-gradient(90deg, var(--gradient-start) 0%, var(--accent) 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        display: inline-block; /* Ensure gradient applies correctly to the full line */
+    }
 }
 
 /* Grid Responsiveness Defaults */
@@ -791,24 +813,34 @@ main {
     margin: 15px 0 !important;
     font-weight: 800 !important;
 }
-
+.stats-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 30px;
 }
 .disziplinen-grid {
-    max-width: 860px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    max-width: 900px;
     margin: 0 auto;
 }
 
+.ueber-uns-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 100px;
+    align-items: center;
+}
+
 @media (max-width: 1200px) {
-    .disziplinen-grid, .stats-grid {
-        grid-template-columns: repeat(2, 1fr);
+    .disziplinen-grid, .stats-grid, .ueber-uns-grid {
+        gap: 50px;
     }
 }
 
 @media (max-width: 768px) {
-    .disziplinen-grid, .stats-grid {
+    .disziplinen-grid, .stats-grid, .ueber-uns-grid {
         grid-template-columns: 1fr;
     }
 }
@@ -823,14 +855,12 @@ main {
     width: 100%;
     display: flex;
     flex-direction: column;
-    aspect-ratio: 1 / 1; 
     overflow: hidden;
 }
 
 .service-card-img {
     width: 100%;
-    height: 170px;
-    object-fit: cover;
+    height: auto;
     border-radius: 12px;
     margin-bottom: 20px;
     flex-shrink: 0;
@@ -838,13 +868,11 @@ main {
 
 @media (max-width: 768px) {
     .service-card {
-        aspect-ratio: unset; 
-        padding: 30px 20px; /* Reduced for mobile */
+        padding: 30px 20px; 
         width: 100%; 
     }
     .service-card-img {
-        height: 200px; /* Force a consistent small rectangle on mobile */
-        object-fit: cover;
+        height: auto; 
         margin-bottom: 20px;
     }
 }
