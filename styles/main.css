@@ -479,7 +479,11 @@ nav.scrolled {
 .hero-form {
     position: relative;
     z-index: 2;
+}
+@media (min-width: 991px) {
+.hero-form {
     padding-top: 25px;
+}
 }
 
 @media (max-width: 991px) {
@@ -509,9 +513,7 @@ nav.scrolled {
         justify-content: center;
     }
 
-    .hero-form {
-        margin-top: 20px;
-    }
+
 }
 
 /* Footer */
