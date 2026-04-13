@@ -473,7 +473,7 @@ nav.scrolled {
 .hero-text {
     position: relative;
     z-index: 2;
-    margin-top: 152px !important; /* Force text down from the header on desktop */
+    margin-top: 75px !important; /* Force text down from the header on desktop */
 }
 
 .hero-form {
