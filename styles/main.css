@@ -479,6 +479,7 @@ nav.scrolled {
 .hero-form {
     position: relative;
     z-index: 2;
+    padding-top: 25px;
 }
 
 @media (max-width: 991px) {
