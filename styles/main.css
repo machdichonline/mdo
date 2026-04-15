@@ -242,7 +242,7 @@ input:focus, select:focus, textarea:focus {
 /* Navigation */
 nav {
     position: fixed;
-    top: 0;
+    top: env(safe-area-inset-top);
     left: 0;
     width: 100%;
     z-index: 1000;
@@ -343,7 +343,7 @@ nav.scrolled {
 /* Header Navigation */
 nav {
     position: fixed;
-    top: 0;
+    top: env(safe-area-inset-top);
     left: 0;
     width: 100%;
     z-index: 1000;
@@ -630,6 +630,7 @@ body.loading main {
 
 main {
     transition: opacity 1s ease, transform 1s ease;
+    padding-top: env(safe-area-inset-top);   
 }
 
 /* Footer Branding & Layout */
