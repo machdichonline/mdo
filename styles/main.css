@@ -1401,6 +1401,16 @@ main {
         transform: translate(0, -50%) scale(1);
         opacity: 1;
     }
+
+        .cookie-buttons {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+    }
+
+    .cookie-btn-primary {
+        grid-column: 1 / -1;
+    }
 }
 
 .cookie-content {
@@ -1416,6 +1426,7 @@ main {
     display: flex;
     gap: 15px;
     flex-wrap: wrap;
+    padding-top: 15px;
 }
 
 .cookie-btn {
