@@ -936,17 +936,6 @@ main {
     width: 100%;
 }
 
-.marquee-content {
-    display: flex;
-    gap: 80px;
-    width: max-content;
-    animation: marquee-scroll-reverse 40s linear infinite;
-}
-
-.marquee-content:hover {
-    animation-play-state: paused;
-}
-
 .marquee-item {
     font-family: var(--font-heading);
     font-weight: 900;
