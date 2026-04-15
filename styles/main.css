@@ -1166,7 +1166,13 @@ main {
     display: flex;
     gap: 100px;
     width: max-content;
+    will-change: transform;           
     animation: marquee 40s linear infinite;
+    animation-play-state: paused;    
+}
+
+.marquee-content.ready {
+    animation-play-state: running;   
 }
 
 .marquee-content:hover {
@@ -1174,7 +1180,7 @@ main {
 }
 
 @keyframes marquee {
-    0% { transform: translateX(0); }
+    0%   { transform: translateX(0); }
     100% { transform: translateX(-50%); }
 }
 
