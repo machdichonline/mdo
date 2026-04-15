@@ -364,12 +364,6 @@ nav.scrolled {
     transition: var(--transition-smooth);
 }
 
-@media (max-width: 991px) {
-    .nav-content {
-        padding: 15px 0;
-    }
-}
-
 .hamburger {
     display: none;
     flex-direction: column;
