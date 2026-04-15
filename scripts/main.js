@@ -322,3 +322,14 @@ document.addEventListener('DOMContentLoaded', () => {
         initCookieBanner();
     });
 });
+
+// Marquee: Warten bis Fonts & Layout stabil sind
+document.fonts.ready.then(function () {
+    requestAnimationFrame(function () {
+        requestAnimationFrame(function () {
+            document.querySelectorAll('.marquee-content').forEach(function (el) {
+                el.classList.add('ready');
+            });
+        });
+    });
+});
