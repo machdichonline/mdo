@@ -1406,10 +1406,16 @@ main {
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 15px;
+        width: 100%;
     }
 
     .cookie-btn-primary {
         grid-column: 1 / -1;
+        width: 100%;
+    }
+
+    .cookie-btn-secondary {
+        width: 100%;
     }
 }
 
