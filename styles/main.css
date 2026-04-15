@@ -1402,7 +1402,7 @@ main {
         opacity: 1;
     }
 
-        .cookie-buttons {
+    .cookie-buttons {
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 15px;
@@ -1410,6 +1410,11 @@ main {
 
     .cookie-btn-primary {
         grid-column: 1 / -1;
+    }
+
+    .cookie-btn {
+        width: 100%;
+        box-sizing: border-box;
     }
 }
 
