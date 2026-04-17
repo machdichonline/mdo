@@ -19,6 +19,36 @@
     z-index: 99999;
   }
 </style>
+    <script>
+  function fixIOSSafeArea() {
+    var cover = document.createElement('div');
+    cover.id = 'ios-safe-area-cover';
+    document.body.appendChild(cover);
+    
+    function update() {
+      var inset = parseInt(
+        getComputedStyle(document.documentElement)
+          .getPropertyValue('--sat') || '0'
+      );
+      if (window.innerHeight < window.screen.height) {
+        cover.style.display = 'block';
+        cover.style.height = (window.screen.height - window.innerHeight + 20) + 'px';
+      }
+    }
+    
+    // Set CSS variable via meta
+    document.documentElement.style.setProperty('--sat', 
+      'env(safe-area-inset-top)');
+    
+    update();
+    window.addEventListener('resize', update);
+    window.addEventListener('scroll', update, { passive: true });
+  }
+  
+  if (/iPhone|iPad/.test(navigator.userAgent)) {
+    document.addEventListener('DOMContentLoaded', fixIOSSafeArea);
+  }
+</script>
     <title>Mach Dich Online | Werde sichtbar. Gewinne neue Kunden</title>
     <link rel="canonical" href="https://www.mach-dich-online.de/" />
     <link rel="icon" type="image/png" href="/favicon.png">
