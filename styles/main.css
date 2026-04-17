@@ -1452,12 +1452,6 @@ nav::before {
     left: 0;
     right: 0;
     height: env(safe-area-inset-top);
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    z-index: 1001;
-}
-
-nav {
     background: red !important;
+    z-index: 9999;
 }
