@@ -5,46 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <meta name="theme-color" content="#ffffff">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
-    <style>
-  #ios-safe-area-cover {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 0px;
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    z-index: 99999;
-  }
-</style>
-<script>
-  if (/iPhone|iPad/.test(navigator.userAgent)) {
-    document.addEventListener('DOMContentLoaded', function() {
-      var cover = document.createElement('div');
-      cover.style.cssText = 'position:fixed;top:0;left:0;right:0;background:rgba(255,255,255,0.95);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);z-index:99999;height:0px;';
-      document.body.appendChild(cover);
-      
-      function update() {
-        var nav = document.querySelector('nav');
-        if (nav) {
-          var navTop = nav.getBoundingClientRect().top;
-          if (navTop > 0) {
-            cover.style.height = navTop + 'px';
-          }
-        } else {
-          setTimeout(update, 100);
-        }
-      }
-      
-      // Warten bis Header per fetch geladen ist
-      setTimeout(update, 800);
-      setTimeout(update, 1500);
-      window.addEventListener('resize', update);
-    });
-  }
-</script>
+
     <title>Mach Dich Online | Werde sichtbar. Gewinne neue Kunden</title>
     <link rel="canonical" href="https://www.mach-dich-online.de/" />
     <link rel="icon" type="image/png" href="/favicon.png">
