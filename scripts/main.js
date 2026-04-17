@@ -241,8 +241,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     });
 
                     triggerLogoFlight();
-
-      
+                })
                 .catch(err => {
                     console.error('Error loading header:', err);
                     if (splash) splash.classList.add('hidden');
