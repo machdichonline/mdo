@@ -19,24 +19,28 @@
     z-index: 99999;
   }
 </style>
-  <script>
+<script>
   if (/iPhone|iPad/.test(navigator.userAgent)) {
     document.addEventListener('DOMContentLoaded', function() {
       var cover = document.createElement('div');
-      cover.style.cssText = 'position:fixed;top:0;left:0;right:0;background:rgba(255,255,255,0.95);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);z-index:99999;';
+      cover.style.cssText = 'position:fixed;top:0;left:0;right:0;background:rgba(255,255,255,0.95);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);z-index:99999;height:0px;';
       document.body.appendChild(cover);
       
       function update() {
         var nav = document.querySelector('nav');
         if (nav) {
           var navTop = nav.getBoundingClientRect().top;
-          cover.style.height = navTop + 'px';
+          if (navTop > 0) {
+            cover.style.height = navTop + 'px';
+          }
+        } else {
+          setTimeout(update, 100);
         }
       }
       
-      update();
-      setTimeout(update, 100);
-      setTimeout(update, 500);
+      // Warten bis Header per fetch geladen ist
+      setTimeout(update, 800);
+      setTimeout(update, 1500);
       window.addEventListener('resize', update);
     });
   }
