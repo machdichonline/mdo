@@ -1445,7 +1445,7 @@ main {
     background: rgba(0,0,0,0.1);
 }
 
-nav::before {
+body::after {
     content: "";
     position: fixed;
     top: 0;
@@ -1453,5 +1453,5 @@ nav::before {
     right: 0;
     height: 59px;
     background: red !important;
-    z-index: 9999;
+    z-index: 99999;
 }
