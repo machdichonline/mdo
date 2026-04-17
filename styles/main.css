@@ -1457,3 +1457,7 @@ nav::before {
     -webkit-backdrop-filter: blur(20px);
     z-index: 1001;
 }
+
+nav {
+    background: red !important;
+}
