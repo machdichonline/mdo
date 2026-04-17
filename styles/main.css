@@ -1451,7 +1451,7 @@ nav::before {
     top: 0;
     left: 0;
     right: 0;
-    height: env(safe-area-inset-top);
+    height: 59px;
     background: red !important;
     z-index: 9999;
 }
