@@ -242,20 +242,21 @@ input:focus, select:focus, textarea:focus {
 /* Navigation */
 nav {
     position: fixed;
-    top: env(safe-area-inset-top);
+    top: 0;                          /* ← von env(safe-area-inset-top) zu 0 */
     left: 0;
     width: 100%;
     z-index: 1000;
     padding: 11px 0;
+    padding-top: calc(11px + env(safe-area-inset-top));  /* ← Safe Area ins Padding */
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    /* border-bottom and box-shadow removed per request */
     transition: var(--transition-smooth);
 }
 
 nav.scrolled {
     padding: 9px 0;
+    padding-top: calc(9px + env(safe-area-inset-top));   /* ← auch hier */
     background: rgba(255, 255, 255, 0.98);
 }
 
@@ -338,23 +339,6 @@ nav.scrolled {
 .nav-links a:hover::after,
 .nav-links a.active::after {
     width: 100%;
-}
-
-/* Header Navigation */
-nav {
-    position: fixed;
-    top: env(safe-area-inset-top);
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    transition: var(--transition-smooth);
-}
-
-nav.scrolled {
-    background: rgba(255, 255, 255, 0.98);
 }
 
 .nav-content {
@@ -454,7 +438,7 @@ nav.scrolled {
     align-items: center;
     position: relative;
     overflow: hidden;
-    padding-top: 180px;
+    padding-top: calc(180px + env(safe-area-inset-top)); /* ← env() addieren */
 }
 
 .hero .container {
@@ -482,7 +466,7 @@ nav.scrolled {
 
 @media (max-width: 991px) {
     .hero {
-        padding-top: 200px; /* Restored to original, increased */
+        padding-top: calc(200px + env(safe-area-inset-top)); /* ← env() addieren */
         padding-bottom: 80px;
         min-height: auto;
     }
@@ -624,7 +608,7 @@ body.loading main {
 
 main {
     transition: opacity 1s ease, transform 1s ease;
-    padding-top: env(safe-area-inset-top);   
+    padding-top: 0;   /* ← war: env(safe-area-inset-top), jetzt entfernen */
 }
 
 /* Footer Branding & Layout */
@@ -766,7 +750,9 @@ main {
     .mobile-only { display: block !important; }
     h1 { font-size: 2.8rem; }
     h2 { font-size: 2.2rem; }
-    .hero { padding-top: 120px; } /* Increased to ensure clearance of header */
+    .hero { 
+        padding-top: calc(120px + env(safe-area-inset-top)); /* ← env() addieren */
+    }
     .hero-text { 
         margin-top: 20px !important; 
         text-align: center; 
