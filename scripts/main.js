@@ -241,6 +241,26 @@ document.addEventListener('DOMContentLoaded', () => {
                     });
 
                     triggerLogoFlight();
+
+                  if (/iPhone|iPad/.test(navigator.userAgent)) {
+                        requestAnimationFrame(() => {
+                            requestAnimationFrame(() => {
+                                const nav = document.querySelector('nav');
+                                if (nav) {
+                                    const navTop = nav.getBoundingClientRect().top;
+                                    if (navTop > 0) {
+                                        let cover = document.getElementById('ios-cover');
+                                        if (!cover) {
+                                            cover = document.createElement('div');
+                                            cover.id = 'ios-cover';
+                                            cover.style.cssText = `position:fixed;top:0;left:0;right:0;height:${navTop}px;background:rgba(255,255,255,0.95);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);z-index:99999;`;
+                                            document.body.appendChild(cover);
+                                        }
+                                    }
+                                }
+                            });
+                        });
+                    }
                 })
                 .catch(err => {
                     console.error('Error loading header:', err);
