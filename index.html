@@ -19,34 +19,26 @@
     z-index: 99999;
   }
 </style>
-    <script>
-  function fixIOSSafeArea() {
-    var cover = document.createElement('div');
-    cover.id = 'ios-safe-area-cover';
-    document.body.appendChild(cover);
-    
-    function update() {
-      var inset = parseInt(
-        getComputedStyle(document.documentElement)
-          .getPropertyValue('--sat') || '0'
-      );
-      if (window.innerHeight < window.screen.height) {
-        cover.style.display = 'block';
-        cover.style.height = (window.screen.height - window.innerHeight + 20) + 'px';
-      }
-    }
-    
-    // Set CSS variable via meta
-    document.documentElement.style.setProperty('--sat', 
-      'env(safe-area-inset-top)');
-    
-    update();
-    window.addEventListener('resize', update);
-    window.addEventListener('scroll', update, { passive: true });
-  }
-  
+  <script>
   if (/iPhone|iPad/.test(navigator.userAgent)) {
-    document.addEventListener('DOMContentLoaded', fixIOSSafeArea);
+    document.addEventListener('DOMContentLoaded', function() {
+      var cover = document.createElement('div');
+      cover.style.cssText = 'position:fixed;top:0;left:0;right:0;background:rgba(255,255,255,0.95);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);z-index:99999;';
+      document.body.appendChild(cover);
+      
+      function update() {
+        var nav = document.querySelector('nav');
+        if (nav) {
+          var navTop = nav.getBoundingClientRect().top;
+          cover.style.height = navTop + 'px';
+        }
+      }
+      
+      update();
+      setTimeout(update, 100);
+      setTimeout(update, 500);
+      window.addEventListener('resize', update);
+    });
   }
 </script>
     <title>Mach Dich Online | Werde sichtbar. Gewinne neue Kunden</title>
