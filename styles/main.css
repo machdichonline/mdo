@@ -42,7 +42,7 @@ body {
     font-family: var(--font-body);
     line-height: 1.6;
     overflow-x: hidden;
-   overflow-y: auto !important;
+  overflow-y: visible !important;
     height: auto !important;
     min-height: 100vh;
     -webkit-font-smoothing: antialiased;
@@ -240,10 +240,9 @@ input:focus, select:focus, textarea:focus {
     background: rgba(0, 0, 0, 0.05);
 }
 
-/* Navigation */
 nav {
     position: fixed;
-    top: env(safe-area-inset-top);
+    top: 0;
     left: 0;
     width: 100%;
     z-index: 1000;
@@ -251,8 +250,13 @@ nav {
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    /* border-bottom and box-shadow removed per request */
     transition: var(--transition-smooth);
+    
+    /* iOS 26 Liquid Glass Fix */
+    -webkit-overflow-scrolling: touch;
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    will-change: transform;
 }
 
 nav.scrolled {
@@ -341,22 +345,6 @@ nav.scrolled {
     width: 100%;
 }
 
-/* Header Navigation */
-nav {
-    position: fixed;
-    top: env(safe-area-inset-top);
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    transition: var(--transition-smooth);
-}
-
-nav.scrolled {
-    background: rgba(255, 255, 255, 0.98);
-}
 
 .nav-content {
     display: flex;
