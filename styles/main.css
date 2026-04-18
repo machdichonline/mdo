@@ -241,9 +241,9 @@ input:focus, select:focus, textarea:focus {
 }
 
 nav {
-    position: fixed;
-    top: 0;
-    left: 0;
+    position: relative;
+    top: auto;
+    left: auto;
     width: 100%;
     z-index: 1000;
     padding: 11px 0;
@@ -251,12 +251,6 @@ nav {
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     transition: var(--transition-smooth);
-    
-    /* iOS 26 Liquid Glass Fix */
-    -webkit-overflow-scrolling: touch;
-    transform: translateZ(0);
-    -webkit-transform: translateZ(0);
-    will-change: transform;
 }
 
 nav.scrolled {
