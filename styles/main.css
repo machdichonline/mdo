@@ -1,7 +1,6 @@
 html {
     scroll-behavior: smooth;
     background-color: #ffffff;
-    overflow: clip;  /* ← nur das neu */
 }
  
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;900&family=Inter:wght@400;500;700&display=swap');
