@@ -42,7 +42,7 @@ body {
     font-family: var(--font-body);
     line-height: 1.6;
     overflow-x: hidden;
-    overflow-y: visible !important;
+   overflow-y: auto !important;
     height: auto !important;
     min-height: 100vh;
     -webkit-font-smoothing: antialiased;
