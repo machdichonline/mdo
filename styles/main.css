@@ -241,9 +241,9 @@ input:focus, select:focus, textarea:focus {
 }
 
 nav {
-    position: relative;
-    top: auto;
-    left: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
     z-index: 1000;
     padding: 11px 0;
@@ -607,7 +607,7 @@ body.loading main {
 
 main {
     transition: opacity 1s ease, transform 1s ease;
-    padding-top: env(safe-area-inset-top);   
+    padding-top: 0;
 }
 
 /* Footer Branding & Layout */
