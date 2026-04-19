@@ -27,6 +27,12 @@ if (isHomePage) {
 } else {
     // Immediately ensure we are not in loading state on other pages
     document.body.classList.remove('loading');
+
+      // iOS 26 Dynamic Island Fix für alle Seiten
+    const iosCover = document.createElement('div');
+    iosCover.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:60px;background:#ffffff;z-index:11000;pointer-events:none;';
+    document.body.prepend(iosCover);
+    setTimeout(() => iosCover.remove(), 1500);
 }
 
 document.addEventListener('DOMContentLoaded', () => {
