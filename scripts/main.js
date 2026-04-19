@@ -6,34 +6,22 @@ const isHomePage = window.location.pathname === '/' ||
 
 let splash = null;
 
-if (isHomePage) {
-    splash = document.createElement('div');
-    splash.id = 'splash-screen';
-    splash.innerHTML = `<div class="splash-logo"><img src="/logo.png" alt="Logo" class="splash-logo-image"></div>`;
-    document.body.prepend(splash);
-    document.body.classList.add('loading');
+splash = document.createElement('div');
+splash.id = 'splash-screen';
+splash.innerHTML = `<div class="splash-logo"><img src="/logo.png" alt="Logo" class="splash-logo-image"></div>`;
+document.body.prepend(splash);
+document.body.classList.add('loading');
 
-    // Fail-safe: Always remove splash after 3 seconds to prevent being stuck
-    setTimeout(() => {
-        if (document.body.classList.contains('loading')) {
-            console.warn('Splash fail-safe triggered');
-            splash.classList.add('hidden');
-            document.body.classList.remove('loading');
-            if (window.ScrollEngineInstance) {
-                window.ScrollEngineInstance.init();
-            }
+setTimeout(() => {
+    if (document.body.classList.contains('loading')) {
+        console.warn('Splash fail-safe triggered');
+        splash.classList.add('hidden');
+        document.body.classList.remove('loading');
+        if (window.ScrollEngineInstance) {
+            window.ScrollEngineInstance.init();
         }
-    }, 3000);
-} else {
-    // Immediately ensure we are not in loading state on other pages
-    document.body.classList.remove('loading');
-
-      // iOS 26 Dynamic Island Fix für alle Seiten
-    const iosCover = document.createElement('div');
-    iosCover.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:60px;background:#ffffff;z-index:11000;pointer-events:none;';
-    document.body.prepend(iosCover);
-    setTimeout(() => iosCover.remove(), 1500);
-}
+    }
+}, 3000);
 
 document.addEventListener('DOMContentLoaded', () => {
     
