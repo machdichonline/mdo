@@ -158,7 +158,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const headerLogo = document.querySelector('.header-logo');
         const headerLogoImg = headerLogo?.querySelector('img');
 
-        if (!isHomePage || !headerLogo || !headerLogoImg) {
+        if (!headerLogo || !headerLogoImg) {
             document.body.classList.remove('loading');
             if (headerLogo) headerLogo.style.opacity = '1';
             return;
