@@ -573,8 +573,8 @@
             <input type="text" id="pf-input-unternehmen" placeholder="Muster GmbH" />
           </div>
           <div class="pf-field" id="pf-f-telefon">
-            <label>Telefon</label>
-            <input type="tel" id="pf-input-telefon" placeholder="+49 171 1234567" />
+<label>Telefon *</label>
+              <input type="tel" id="pf-input-telefon" placeholder="+49 171 1234567" />
             <span class="pf-err-msg">Bitte eine gültige Telefonnummer eingeben.</span>
           </div>
           <div class="pf-field" id="pf-f-email">
@@ -958,10 +958,13 @@
     if (wrap) wrap.style.display = btn.classList.contains('selected') ? 'block' : 'none';
   };
 
-  window.pfUpdateSubmitBtn = function() {
-    var email = document.getElementById('pf-input-email').value.trim();
-    document.getElementById('pf-btn-submit').disabled = !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-  };
+window.pfUpdateSubmitBtn = function() {
+  var email = document.getElementById('pf-input-email').value.trim();
+  var tel = document.getElementById('pf-input-telefon').value.trim();
+  var emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  var telOk = tel.replace(/\D/g, '').length >= 7;
+  document.getElementById('pf-btn-submit').disabled = !(emailOk && telOk);
+};
 
   ['pf-input-vorname', 'pf-input-nachname', 'pf-input-telefon', 'pf-input-email'].forEach(function(id) {
     var el = document.getElementById(id);
@@ -984,9 +987,9 @@
       document.getElementById('pf-input-vorname').classList.remove('pf-invalid');
     }
 
-    var tel = document.getElementById('pf-input-telefon').value.trim();
-    var fTel = document.getElementById('pf-f-telefon');
-    if (tel && !/^[+]?[\d\s\-()]{7,20}$/.test(tel)) {
+var tel = document.getElementById('pf-input-telefon').value.trim();
+var fTel = document.getElementById('pf-f-telefon');
+if (!tel || tel.replace(/\D/g, '').length < 7) {
       fTel.classList.add('pf-has-error');
       document.getElementById('pf-input-telefon').classList.add('pf-invalid');
       valid = false;
